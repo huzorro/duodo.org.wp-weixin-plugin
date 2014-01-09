@@ -197,8 +197,17 @@ class Plugin_Name_Admin {
 
         //add admin main menu
         add_menu_page(
+            __('Latest-news', $this->plugin_slug),
             __('Weixin', $this->plugin_slug),
-            __('Weixin', $this->plugin_slug),
+            'activate_plugins',
+            $this->plugin_slug . "-" . 'news',
+            array($this, 'display_plugin_admin_page')
+        );
+        //add latest news sub menu
+        add_submenu_page(
+            $this->plugin_slug . "-" . 'news',
+            __('Latest-news', $this->plugin_slug),
+            __('Latest-news', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'news',
             array($this, 'display_plugin_admin_page')
@@ -212,15 +221,7 @@ class Plugin_Name_Admin {
             $this->plugin_slug . "-" . 'settings',
             array($this, 'display_plugin_admin_page')
         );
-        //add latest news sub menu
-        add_submenu_page(
-            $this->plugin_slug . "-" . 'news',
-            __('Latest-news', $this->plugin_slug),
-            __('Latest-news', $this->plugin_slug),
-            'activate_plugins',
-            $this->plugin_slug . "-" . 'news',
-            array($this, 'display_plugin_admin_page')
-        );
+
         //add custom-menu sub menu
         add_submenu_page(
             $this->plugin_slug . "-" . 'news',
