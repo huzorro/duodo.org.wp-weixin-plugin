@@ -197,7 +197,7 @@ class Plugin_Name_Admin {
 
         //add admin main menu
         add_menu_page(
-            __('Latest-news', $this->plugin_slug),
+            __('Weixin', $this->plugin_slug),
             __('Weixin', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'news',
