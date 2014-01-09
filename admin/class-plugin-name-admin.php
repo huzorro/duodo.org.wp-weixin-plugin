@@ -86,7 +86,7 @@ class Plugin_Name_Admin {
 		 * Read more about actions and filters:
 		 * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		add_action( '@TODO', array( $this, 'action_method_name' ) );
+		add_action( 'plugins_loaded', array( $this, 'action_method_name' ) );
 		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
 	}
@@ -251,7 +251,7 @@ class Plugin_Name_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_plugin_admin_page() {
-		include_once( 'views/admin.php' );
+		include_once( 'views/general-settings-plugin.php' );
 	}
 
 	/**
@@ -281,6 +281,7 @@ class Plugin_Name_Admin {
 	 */
 	public function action_method_name() {
 		// @TODO: Define your action hook callback here
+        General_settings_plugin::get_instance();
 	}
 
 	/**
