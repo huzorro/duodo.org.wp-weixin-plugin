@@ -29,7 +29,7 @@ class General_settings_plugin
         add_action('init', array(&$this, 'load_settings'));
         add_action('admin_init', array(&$this, 'register_general_settings'));
         add_action('admin_init', array(&$this, 'register_advanced_settings'));
-        add_action('admin_menu', array(&$this, 'add_admin_menus'));
+//        add_action('admin_menu', array(&$this, 'add_admin_menus'));
     }
     /**
      * Return an instance of this class.
@@ -191,4 +191,5 @@ class General_settings_plugin
         echo '</h2>';
     }
 }
+echo "abc";
 add_action( 'plugins_loaded', array( 'General_settings_plugin', 'get_instance' ) );
