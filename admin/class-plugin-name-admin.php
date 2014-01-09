@@ -252,7 +252,9 @@ class Plugin_Name_Admin {
 	 */
 	public function display_plugin_admin_page() {
 		include_once( 'views/general-settings-plugin.php' );
-        General_settings_plugin::get_instance();
+//        $general_settings = General_settings_plugin::get_instance();
+        $general_settings = new General_settings_plugin();
+        $general_settings->plugin_options_page();
 	}
 
 	/**
