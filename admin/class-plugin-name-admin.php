@@ -205,7 +205,7 @@ class Plugin_Name_Admin {
         );
         //add setting sub menu
         add_submenu_page(
-            $this->plugin_slug . "-" . 'weixin',
+            $this->plugin_slug . "-" . 'news',
             __('General-Settings', $this->plugin_slug),
             __('General-Settings', $this->plugin_slug),
             'activate_plugins',
@@ -214,7 +214,7 @@ class Plugin_Name_Admin {
         );
         //add latest news sub menu
         add_submenu_page(
-            $this->plugin_slug . "-" . 'weixin',
+            $this->plugin_slug . "-" . 'news',
             __('Latest-news', $this->plugin_slug),
             __('Latest-news', $this->plugin_slug),
             'activate_plugins',
@@ -223,7 +223,7 @@ class Plugin_Name_Admin {
         );
         //add custom-menu sub menu
         add_submenu_page(
-            $this->plugin_slug . "-" . 'weixin',
+            $this->plugin_slug . "-" . 'news',
             __('Custom-menu', $this->plugin_slug),
             __('Custom-menu', $this->plugin_slug),
             'activate_plugins',
@@ -232,7 +232,7 @@ class Plugin_Name_Admin {
         );
         //add custom-reply sub menu
         add_submenu_page(
-            $this->plugin_slug . "-" . 'weixin',
+            $this->plugin_slug . "-" . 'news',
             __('Custom-reply', $this->plugin_slug),
             __('Custom-reply', $this->plugin_slug),
             'activate_plugins',
