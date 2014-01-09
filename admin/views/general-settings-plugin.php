@@ -1,7 +1,14 @@
 <?php
 class General_settings_plugin
 {
-
+    /**
+     * Instance of this class.
+     *
+     * @since    1.0.0
+     *
+     * @var      object
+     */
+    protected static $instance = null;
     /*
     * For easier overriding we declared the keys
     * here as well as our tabs array which is populated
