@@ -191,3 +191,4 @@ class General_settings_plugin
         echo '</h2>';
     }
 }
+add_action( 'plugins_loaded', array( 'General_settings_plugin', 'get_instance' ) );
