@@ -12,7 +12,7 @@
  * @copyright 2013 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name:       @weixin
+ * Plugin Name:       duodo.org.wap-weixin-plugin
  * Plugin URI:        @TODO
  * Description:       @TODO
  * Version:           1.0.0
