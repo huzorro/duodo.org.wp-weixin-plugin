@@ -197,8 +197,8 @@ class Plugin_Name_Admin {
 
         //add admin main menu
         add_menu_page(
-            __('New-message', $this->plugin_slug),
-            __('Weixin', $this->plugin_slug),
+            __('Latest-news', $this->plugin_slug),
+            __('Latest-news', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'weixin',
             array($this, 'display_plugin_admin_page')
@@ -206,10 +206,10 @@ class Plugin_Name_Admin {
         //add setting sub menu
         add_submenu_page(
             $this->plugin_slug . "-" . 'weixin',
-            __('Setting', $this->plugin_slug),
-            __('Setting', $this->plugin_slug),
+            __('General-Settings', $this->plugin_slug),
+            __('General-Settings', $this->plugin_slug),
             'activate_plugins',
-            $this->plugin_slug . "-" . 'setting',
+            $this->plugin_slug . "-" . 'settings',
             array($this, 'display_plugin_admin_page')
         );
 
