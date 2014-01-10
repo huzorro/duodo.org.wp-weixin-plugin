@@ -249,7 +249,7 @@ class Plugin_Name_Admin {
 
         register_setting($this->interface_settings_key, $this->interface_settings_key);
         add_settings_section('section_interface', __('Interface Settings', $this->plugin_slug), array(&$this, 'section_interface_desc'), $this->interface_settings_key);
-        add_settings_field('interface_option', __('A Interface Option', $this->plugin_slug), array(&$this, 'field_interface_option'), $this->advanced_settings_key, 'section_interface');
+        add_settings_field('interface_option', __('A Interface Option', $this->plugin_slug), array(&$this, 'field_interface_option'), $this->interface_settings_key, 'section_interface');
     }
     /**
      * Registers the default reply settings and appends the
