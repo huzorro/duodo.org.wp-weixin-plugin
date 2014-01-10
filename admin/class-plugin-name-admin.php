@@ -41,6 +41,18 @@ class Plugin_Name_Admin {
 	 */
 	protected $plugin_screen_hook_suffix = null;
 
+    protected $general_settings_key = 'general_settings';
+    protected $advanced_settings_key = 'advanced_settings';
+    protected $interface_settings_key = "interface_settings";
+    protected $default_reply_settings_key = "default_reply_settings_key";
+
+    protected  $general_settings = array();
+    protected  $advanced_settings = array();
+    protected  $interface_settings = array();
+    protected  $default_reply_settings = array();
+
+    protected $plugin_settings_tabs = array();
+
 	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
 	 * settings page and menu.
@@ -167,6 +179,179 @@ class Plugin_Name_Admin {
 		}
 
 	}
+    /**
+    * Loads both the general and advanced settings from
+    * the database into their respective arrays. Uses
+    * array_merge to merge with default values if they're
+    * missing.
+    */
+    public function load_settings()
+    {
+        $this->general_settings = (array)get_option($this->general_settings_key);
+        $this->advanced_settings = (array)get_option($this->advanced_settings_key);
+        $this->interface_settings = (array)get_option($this->interface_settings_key);
+        $this->default_reply_settings = (array)get_option($this->default_reply_settings_key);
+
+        // Merge with defaults
+        $this->general_settings = array_merge(array(
+            'general_option' => 'General value'
+        ), $this->general_settings);
+
+        $this->advanced_settings = array_merge(array(
+            'advanced_option' => 'Advanced value'
+        ), $this->advanced_settings);
+
+        $this->interface_settings = array_merge(array(
+            'interface_option' => 'Interface value'
+        ), $this->interface_settings);
+
+        $this->default_reply_settings = array_merge(array(
+            'default_reply_option' => 'Default reply value'
+        ), $this->default_reply_settings);
+    }
+    /**
+    * Registers the general settings via the Settings API,
+    * appends the setting to the tabs array of the object.
+    */
+    function register_general_settings()
+    {
+        $this->plugin_settings_tabs[$this->general_settings_key] = __('General', $this->plugin_slug);
+
+        register_setting($this->general_settings_key, $this->general_settings_key);
+        add_settings_section('section_general', __('General Settings', $this->plugin_slug), array(&$this, 'section_general_desc'), $this->general_settings_key);
+        add_settings_field('general_option', __('A General Option', $this->plugin_slug), array(&$this, 'field_general_option'), $this->general_settings_key, 'section_general');
+    }
+
+    /**
+    * Registers the advanced settings and appends the
+    * key to the plugin settings tabs array.
+    */
+    function register_advanced_settings()
+    {
+        $this->plugin_settings_tabs[$this->advanced_settings_key] = __('Advanced', $this->plugin_slug);
+
+        register_setting($this->advanced_settings_key, $this->advanced_settings_key);
+        add_settings_section('section_advanced', __('Advanced Settings', $this->plugin_slug), array(&$this, 'section_advanced_desc'), $this->advanced_settings_key);
+        add_settings_field('advanced_option', __('A Advanced Option', $this->plugin_slug), array(&$this, 'field_advanced_option'), $this->advanced_settings_key, 'section_advanced');
+    }
+    /**
+     * Registers the interface settings and appends the
+     * key to the plugin settings tabs array.
+     */
+    function register_interface_settings()
+    {
+        $this->plugin_settings_tabs[$this->interface_settings_key] = __('Interface', $this->plugin_slug);
+
+        register_setting($this->interface_settings_key, $this->interface_settings_key);
+        add_settings_section('section_interface', __('Interface Settings', $this->plugin_slug), array(&$this, 'section_interface_desc'), $this->interface_settings_key);
+        add_settings_field('interface_option', __('A Interface Option', $this->plugin_slug), array(&$this, 'field_interface_option'), $this->advanced_settings_key, 'section_interface');
+    }
+    /**
+     * Registers the default reply settings and appends the
+     * key to the plugin settings tabs array.
+     */
+    function register_default_reply_settings()
+    {
+        $this->plugin_settings_tabs[$this->default_reply_settings_key] = __('Default reply', $this->plugin_slug);
+
+        register_setting($this->default_reply_settings_key, $this->default_reply_settings_key);
+        add_settings_section('section_default_reply', __('Default Reply Settings', $this->plugin_slug), array(&$this, 'section_default_reply_desc'), $this->default_reply_settings_key);
+        add_settings_field('default_reply_option', __('A Reply Option', $this->plugin_slug), array(&$this, 'field_default_reply_option'), $this->default_reply_settings_key, 'section_default_reply');
+    }
+    function section_general_desc()
+    {
+        __('General section description goes here.', $this->plugin_slug);
+    }
+
+    function section_advanced_desc()
+    {
+        __('Advanced section description goes here.', $this->plugin_slug);
+    }
+
+    function section_interface_desc() {
+        __('Interface section description goes here.', $this->plugin_slug);
+    }
+
+    function section_default_reply_desc() {
+        __('Default reply section description goes here.', $this->plugin_slug);
+    }
+
+    /**
+    * General Option field callback, renders a
+    * text input, note the name and value.
+    */
+    function field_general_option()
+    {
+        ?>
+        <input type="text" name="<?php echo $this->general_settings_key; ?>[general_option]"
+               value="<?php echo esc_attr($this->general_settings['general_option']); ?>"/>
+    <?php
+    }
+
+    /**
+     * Advanced Option field callback, same as above.
+     */
+    function field_advanced_option()
+    {
+        ?>
+        <input type="text" name="<?php echo $this->advanced_settings_key; ?>[advanced_option]"
+               value="<?php echo esc_attr($this->advanced_settings['advanced_option']); ?>"/>
+    <?php
+    }
+
+    function field_interface_option()
+    {
+        ?>
+        <input type="text" name="<?php echo $this->interface_settings_key; ?>[interface_option]"
+               value="<?php echo esc_attr($this->interface_settings['interface_option']); ?>"/>
+    <?php
+    }
+
+    function field_default_reply_option()
+    {
+        ?>
+        <input type="text" name="<?php echo $this->default_reply_settings_key; ?>[default_reply_option]"
+               value="<?php echo esc_attr($this->default_reply_settings['default_reply_option']); ?>"/>
+    <?php
+    }
+    /**
+     * Plugin Options page rendering goes here, checks
+     * for active tab and replaces key with the related
+     * settings key. Uses the plugin_options_tabs method
+     * to render the tabs.
+     */
+    function plugin_options_page()
+    {
+        $tab = isset($_GET['tab']) ? $_GET['tab'] : $this->general_settings_key;
+        ?>
+        <div class="wrap">
+            <?php $this->plugin_options_tabs(); ?>
+            <form method="post" action="options.php">
+                <?php wp_nonce_field('update-options'); ?>
+                <?php settings_fields($tab); ?>
+                <?php do_settings_sections($tab); ?>
+                <?php submit_button(); ?>
+            </form>
+        </div>
+    <?php
+    }
+    /**
+     * Renders our tabs in the plugin options page,
+     * walks through the object's tabs array and prints
+     * them one by one. Provides the heading for the
+     * plugin_options_page method.
+     */
+    function plugin_options_tabs()
+    {
+        $current_tab = isset($_GET['tab']) ? $_GET['tab'] : $this->general_settings_key;
+
+        echo '<h2 class="nav-tab-wrapper">';
+        foreach ($this->plugin_settings_tabs as $tab_key => $tab_caption) {
+            $active = $current_tab == $tab_key ? 'nav-tab-active' : '';
+            echo '<a class="nav-tab ' . $active . '" href="?page=' . $this->plugin_slug. '-settings' . '&tab=' . $tab_key . '">' . $tab_caption . '</a>';
+        }
+        echo '</h2>';
+    }
 
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
@@ -255,8 +440,7 @@ class Plugin_Name_Admin {
 	 */
 	public function display_plugin_admin_page() {
 //		include_once( 'views/general-settings-plugin.php' );
-        $general_settings = General_settings_plugin::get_instance();
-        $general_settings->plugin_options_page();
+        $this->plugin_options_page();
 	}
 
 	/**
