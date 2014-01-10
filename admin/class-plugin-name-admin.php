@@ -44,7 +44,7 @@ class Plugin_Name_Admin {
     protected $general_settings_key = 'general_settings';
     protected $advanced_settings_key = 'advanced_settings';
     protected $interface_settings_key = "interface_settings";
-    protected $default_reply_settings_key = "default_reply_settings_key";
+    protected $default_reply_settings_key = "default_reply_settings";
 
     protected  $general_settings = array();
     protected  $advanced_settings = array();
@@ -199,7 +199,9 @@ class Plugin_Name_Admin {
 
         // Merge with defaults
         $this->general_settings = array_merge(array(
-            'general_option' => 'General value'
+            'general_option_token' => __('token', $this->plugin_slug),
+            'general_option_thumbnails' => __('thumbnails url', $this->plugin_slug),
+            'general_option_replay_MAX' => __('replay MAX', $this->plugin_slug)
         ), $this->general_settings);
 
         $this->advanced_settings = array_merge(array(
@@ -224,7 +226,9 @@ class Plugin_Name_Admin {
 
         register_setting($this->general_settings_key, $this->general_settings_key);
         add_settings_section('section_general', __('General Settings', $this->plugin_slug), array(&$this, 'section_general_desc'), $this->general_settings_key);
-        add_settings_field('general_option', __('A General Option', $this->plugin_slug), array(&$this, 'field_general_option'), $this->general_settings_key, 'section_general');
+        add_settings_field('general_option_token', __('token', $this->plugin_slug), array(&$this, 'field_general_option_token'), $this->general_settings_key, 'section_general');
+        add_settings_field('general_option_thumbnails', __('thumbnails', $this->plugin_slug), array(&$this, 'field_general_option_thumbnails'), $this->general_settings_key, 'section_general');
+        add_settings_field('general_option_replay_MAX', __('reply MAX', $this->plugin_slug), array(&$this, 'field_general_option_replay_MAX'), $this->general_settings_key, 'section_general');
     }
 
     /**
@@ -285,14 +289,27 @@ class Plugin_Name_Admin {
     * General Option field callback, renders a
     * text input, note the name and value.
     */
-    function field_general_option()
+    function field_general_option_token()
     {
         ?>
-        <input type="text" name="<?php echo $this->general_settings_key; ?>[general_option]"
-               value="<?php echo esc_attr($this->general_settings['general_option']); ?>"/>
+        <input type="text" name="<?php echo $this->general_settings_key; ?>[general_option_token]"
+               value="<?php echo esc_attr($this->general_settings['general_option_token']); ?>"/>
     <?php
     }
-
+    function field_general_option_thumbnails()
+    {
+        ?>
+        <input type="text" name="<?php echo $this->general_settings_key; ?>[general_option_thumbnails]"
+               value="<?php echo esc_attr($this->general_settings['general_option_thumbnails']); ?>"/>
+    <?php
+    }
+    function field_general_option_replay_MAX()
+    {
+        ?>
+        <input type="text" name="<?php echo $this->general_settings_key; ?>[general_option_replay_MAX]"
+               value="<?php echo esc_attr($this->general_settings['general_option_replay_MAX']); ?>"/>
+    <?php
+    }
     /**
      * Advanced Option field callback, same as above.
      */
