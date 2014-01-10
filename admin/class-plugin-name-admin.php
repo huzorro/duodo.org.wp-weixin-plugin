@@ -265,20 +265,20 @@ class Plugin_Name_Admin {
     }
     function section_general_desc()
     {
-        __('General section description goes here.', $this->plugin_slug);
+        __e('General section description goes here.', $this->plugin_slug);
     }
 
     function section_advanced_desc()
     {
-        __('Advanced section description goes here.', $this->plugin_slug);
+        __e('Advanced section description goes here.', $this->plugin_slug);
     }
 
     function section_interface_desc() {
-        __('Interface section description goes here.', $this->plugin_slug);
+        __e('Interface section description goes here.', $this->plugin_slug);
     }
 
     function section_default_reply_desc() {
-        __('Default reply section description goes here.', $this->plugin_slug);
+        __e('Default reply section description goes here.', $this->plugin_slug);
     }
 
     /**
