@@ -91,6 +91,8 @@ class Plugin_Name_Admin {
         add_action('init', array(&$this, 'load_settings'));
         add_action('admin_init', array(&$this, 'register_general_settings'));
         add_action('admin_init', array(&$this, 'register_advanced_settings'));
+        add_action('admin_init', array(&$this,  'register_interface_settings'));
+        add_action('admin_init', array(&$this,  'register_default_reply_settings'));
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( &$this, 'add_plugin_admin_menu' ) );
 
