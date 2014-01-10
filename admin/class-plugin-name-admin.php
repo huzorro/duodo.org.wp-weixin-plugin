@@ -73,8 +73,8 @@ class Plugin_Name_Admin {
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'enqueue_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'enqueue_admin_scripts' ) );
 
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
@@ -89,8 +89,8 @@ class Plugin_Name_Admin {
 		 * Read more about actions and filters:
 		 * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		add_action( '@TODO', array( $this, 'action_method_name' ) );
-		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
+		add_action( '@TODO', array( &$this, 'action_method_name' ) );
+		add_filter( '@TODO', array( &$this, 'filter_method_name' ) );
 
 	}
 
@@ -204,7 +204,7 @@ class Plugin_Name_Admin {
             __('Weixin', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'news',
-            array($this, 'display_plugin_admin_page')
+            array(&$this, 'display_plugin_admin_page')
         );
         //add latest news sub menu
         add_submenu_page(
@@ -213,7 +213,7 @@ class Plugin_Name_Admin {
             __('Latest-news', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'news',
-            array($this, 'display_plugin_admin_page')
+            array(&$this, 'display_plugin_admin_page')
         );
         //add setting sub menu
         add_submenu_page(
@@ -222,7 +222,7 @@ class Plugin_Name_Admin {
             __('General-Settings', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'settings',
-            array($this, 'display_plugin_admin_page')
+            array(&$this, 'display_plugin_admin_page')
         );
 
         //add custom-menu sub menu
@@ -232,7 +232,7 @@ class Plugin_Name_Admin {
             __('Custom-menu', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'menu',
-            array($this, 'display_plugin_admin_page')
+            array(&$this, 'display_plugin_admin_page')
         );
         //add custom-reply sub menu
         add_submenu_page(
@@ -241,7 +241,7 @@ class Plugin_Name_Admin {
             __('Custom-reply', $this->plugin_slug),
             'activate_plugins',
             $this->plugin_slug . "-" . 'reply',
-            array($this, 'display_plugin_admin_page')
+            array(&$this, 'display_plugin_admin_page')
         );
 
 
