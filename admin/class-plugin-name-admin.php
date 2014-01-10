@@ -47,6 +47,7 @@ class Plugin_Name_Admin {
 	 *
 	 * @since     1.0.0
 	 */
+
 	private function __construct() {
 
 		/*
@@ -67,6 +68,8 @@ class Plugin_Name_Admin {
 		 *
 		 */
 		$plugin = Plugin_Name::get_instance();
+
+
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.
@@ -251,9 +254,8 @@ class Plugin_Name_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_plugin_admin_page() {
-		include_once( 'views/general-settings-plugin.php' );
-//        $general_settings = General_settings_plugin::get_instance();
-        $general_settings = new General_settings_plugin();
+//		include_once( 'views/general-settings-plugin.php' );
+        $general_settings = General_settings_plugin::get_instance();
         $general_settings->plugin_options_page();
 	}
 
