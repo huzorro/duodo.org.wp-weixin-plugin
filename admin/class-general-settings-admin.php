@@ -253,7 +253,7 @@ public function load_settings()
         $this->plugin_settings_tabs[$this->wechat_advanced_settings_key] = __('Advanced', $this->plugin_slug);
 
         register_setting($this->wechat_advanced_settings_key, $this->wechat_advanced_settings_key);
-        add_settings_section('section_advanced', __('Advanced Settings', $this->plugin_slug), array(&$this, 'section_advanced_desc'), $this->advanced_settings_key);
+        add_settings_section('section_advanced', __('Advanced Settings', $this->plugin_slug), array(&$this, 'section_advanced_desc'), $this->wechat_advanced_settings_key);
         add_settings_field('appid', __('appid', $this->plugin_slug), array(&$this, 'field_wechat_advanced_option_appid'), $this->wechat_advanced_settings_key, 'section_advanced');
         add_settings_field('secret', __('secret', $this->plugin_slug), array(&$this, 'field_wechat_advanced_option_secret'), $this->wechat_advanced_settings_key, 'section_advanced');
     }
@@ -267,18 +267,18 @@ public function load_settings()
 
         register_setting($this->wechat_msgtype_desc_settings_key, $this->wechat_msgtype_desc_settings_key);
         add_settings_section('section_msgtype', __('Msg type desc Settings', $this->plugin_slug), array(&$this, 'section_msgtype_desc'), $this->wechat_msgtype_desc_settings_key);
-        add_settings_field('text', __('text type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_text'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('image', __('image type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_image'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('news', __('news type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_news'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('music', __('music type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_music'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('voice', __('voice type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_voice'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('link', __('link type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_link'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('video', __('video type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_video'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('location', __('location type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_location'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('event:subscribe', __('event:subscribe type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_subscribe'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('event:unsubscribe', __('event:unsubscribe type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_unsubscribe'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('event:LOCATION', __('event:LOCATION type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_LOCATION'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
-        add_settings_field('event:CLICK', __('event:CLICK type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_CLICK'), $this->wechat_msgtype_desc_settings_key, 'section_msgtyp');
+        add_settings_field('text', __('text type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_text'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('image', __('image type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_image'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('news', __('news type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_news'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('music', __('music type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_music'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('voice', __('voice type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_voice'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('link', __('link type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_link'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('video', __('video type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_video'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('location', __('location type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_location'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('event:subscribe', __('event:subscribe type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_subscribe'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('event:unsubscribe', __('event:unsubscribe type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_unsubscribe'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('event:LOCATION', __('event:LOCATION type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_LOCATION'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
+        add_settings_field('event:CLICK', __('event:CLICK type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_CLICK'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
 
     }
     /**
