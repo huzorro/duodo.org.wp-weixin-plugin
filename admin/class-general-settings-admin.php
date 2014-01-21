@@ -462,7 +462,7 @@ public function load_settings()
      */
     function plugin_options_page()
     {
-        $tab = isset($_GET['tab']) ? $_GET['tab'] : $this->general_settings_key;
+        $tab = isset($_GET['tab']) ? $_GET['tab'] : $this->wechat_general_settings_key;
         ?>
         <div class="wrap">
             <?php $this->plugin_options_tabs(); ?>
@@ -483,7 +483,7 @@ public function load_settings()
      */
     function plugin_options_tabs()
     {
-        $current_tab = isset($_GET['tab']) ? $_GET['tab'] : $this->general_settings_key;
+        $current_tab = isset($_GET['tab']) ? $_GET['tab'] : $this->wechat_general_settings_key;
 
         echo '<h2 class="nav-tab-wrapper">';
         foreach ($this->plugin_settings_tabs as $tab_key => $tab_caption) {
