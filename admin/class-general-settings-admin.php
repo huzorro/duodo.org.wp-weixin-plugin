@@ -225,8 +225,8 @@ public function load_settings()
         ), $this->wechat_msgtype_desc_settings);
 
         $this->wechat_reply_func_settings = array_merge(array(
-            'latest_news_reply_func' => __('latest_news_reply_func desc', $this->plugin_slug),
-            'latest_hot_reply_func' => __('latest_hot_reply_func desc', $this->plugin_slug)
+            'latest_news_reply_func' => __('function desc', $this->plugin_slug),
+            'latest_hot_reply_func' => __('function desc', $this->plugin_slug)
         ), $this->wechat_reply_func_settings);
     }
     /**
