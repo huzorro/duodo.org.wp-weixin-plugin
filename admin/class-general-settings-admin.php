@@ -183,14 +183,14 @@ class General_settings_admin {
 			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), Plugin_Name::VERSION );
 		}
 
-}
-/**
- * Loads both the general and advanced settings from
- * the database into their respective arrays. Uses
- * array_merge to merge with default values if they're
- * missing.
- */
-public function load_settings()
+    }
+    /**
+     * Loads both the general and advanced settings from
+     * the database into their respective arrays. Uses
+     * array_merge to merge with default values if they're
+     * missing.
+     */
+    public function load_settings()
     {
         $this->wechat_general_settings = (array)get_option($this->wechat_general_settings_key);
         $this->wechat_advanced_settings = (array)get_option($this->wechat_advanced_settings_key);
@@ -221,7 +221,8 @@ public function load_settings()
             'event:subscribe' => __('event:subscribe desc', $this->plugin_slug),
             'event:unsubscribe' => __('event:unsubscribe desc', $this->plugin_slug),
             'event:LOCATION' => __('event:LOCATION desc', $this->plugin_slug),
-            'event:CLICK' => __('event:CLICK desc', $this->plugin_slug)
+            'event:CLICK' => __('event:CLICK desc', $this->plugin_slug),
+            'event:SCAN' => _('event:SCAN desc', $this->plugin_slug)
         ), $this->wechat_msgtype_desc_settings);
 
         $this->wechat_reply_func_settings = array_merge(array(
@@ -279,7 +280,7 @@ public function load_settings()
         add_settings_field('event:unsubscribe', __('event:unsubscribe type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_unsubscribe'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
         add_settings_field('event:LOCATION', __('event:LOCATION type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_LOCATION'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
         add_settings_field('event:CLICK', __('event:CLICK type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_CLICK'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
-
+        add_settings_field('event:SCAN', __('event:SCAN type', $this->plugin_slug), array(&$this, 'field_wechat_mmsgtype_desc_option_event_SCAN'), $this->wechat_msgtype_desc_settings_key, 'section_msgtype');
     }
     /**
      * Registers the default reply settings and appends the
@@ -440,6 +441,12 @@ public function load_settings()
                value="<?php echo esc_attr($this->wechat_msgtype_desc_settings['event:CLICK']); ?>"/>
     <?php
     }
+    function field_wechat_mmsgtype_desc_option_event_SCAN() {
+        ?>
+        <input type="text" name="<?php echo $this->wechat_msgtype_desc_settings_key; ?>[event:SCAN]"
+               value="<?php echo esc_attr($this->wechat_msgtype_desc_settings['event:SCAN']); ?>"/>
+    <?php
+    }
     function field_wechat_reply_func_option_latest_news_reply_func()
     {
         ?>
@@ -528,21 +535,21 @@ public function load_settings()
             __('Latest-news', $this->plugin_slug),
             __('Weixin', $this->plugin_slug),
             'activate_plugins',
-            $this->plugin_slug . "-" . 'news',
+            $this->plugin_slug . "-" . 'settings',
             array(&$this, 'display_plugin_admin_page')
         );
-        //add latest news sub menu
-        add_submenu_page(
-            $this->plugin_slug . "-" . 'news',
-            __('Latest-news', $this->plugin_slug),
-            __('Latest-news', $this->plugin_slug),
-            'activate_plugins',
-            $this->plugin_slug . "-" . 'news',
-            array(&$this, 'display_plugin_admin_page')
-        );
+//        //add latest news sub menu
+//        add_submenu_page(
+//            $this->plugin_slug . "-" . 'news',
+//            __('Latest-news', $this->plugin_slug),
+//            __('Latest-news', $this->plugin_slug),
+//            'activate_plugins',
+//            $this->plugin_slug . "-" . 'news',
+//            array(&$this, 'display_plugin_admin_page')
+//        );
         //add setting sub menu
         add_submenu_page(
-            $this->plugin_slug . "-" . 'news',
+            $this->plugin_slug . "-" . 'settings',
             __('General-Settings', $this->plugin_slug),
             __('General-Settings', $this->plugin_slug),
             'activate_plugins',
@@ -551,23 +558,23 @@ public function load_settings()
         );
 
         //add custom-menu sub menu
-        add_submenu_page(
-            $this->plugin_slug . "-" . 'news',
-            __('Custom-menu', $this->plugin_slug),
-            __('Custom-menu', $this->plugin_slug),
-            'activate_plugins',
-            $this->plugin_slug . "-" . 'menu',
-            array(&$this, 'display_plugin_admin_page')
-        );
-        //add custom-reply sub menu
-        add_submenu_page(
-            $this->plugin_slug . "-" . 'news',
-            __('Custom-reply', $this->plugin_slug),
-            __('Custom-reply', $this->plugin_slug),
-            'activate_plugins',
-            $this->plugin_slug . "-" . 'reply',
-            array(&$this, 'display_plugin_admin_page')
-        );
+//        add_submenu_page(
+//            $this->plugin_slug . "-" . 'news',
+//            __('Custom-menu', $this->plugin_slug),
+//            __('Custom-menu', $this->plugin_slug),
+//            'activate_plugins',
+//            $this->plugin_slug . "-" . 'menu',
+//            array(&$this, 'display_plugin_admin_page')
+//        );
+//        //add custom-reply sub menu
+//        add_submenu_page(
+//            $this->plugin_slug . "-" . 'news',
+//            __('Custom-reply', $this->plugin_slug),
+//            __('Custom-reply', $this->plugin_slug),
+//            'activate_plugins',
+//            $this->plugin_slug . "-" . 'reply',
+//            array(&$this, 'display_plugin_admin_page')
+//        );
 
 
 

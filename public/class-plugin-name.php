@@ -81,8 +81,14 @@ class Plugin_Name {
 		add_action( '@TODO', array( $this, 'action_method_name' ) );
 		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
+        self::wechat_update_db_check();
 	}
 
+    public static function wechat_update_db_check() {
+        if(get_site_option('wechat_db_version') != self::VERSION) {
+            self::single_activate();
+        }
+    }
 	/**
 	 * Return the plugin slug.
 	 *
@@ -235,6 +241,81 @@ class Plugin_Name {
 	 */
 	private static function single_activate() {
 		// @TODO: Define activation functionality here
+        global $wpdb;
+//        $wechat_db_version = '1.0.0';
+
+        $sql = sprintf('CREATE TABLE %swechat_custom_replys (
+                            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            keyword varchar(50) NOT NULL DEFAULT "" COMMENT "关键字",
+                            reply_content varchar(500) NOT NULL DEFAULT "" COMMENT "回复内容",
+                            reply_type varchar(20) NOT NULL DEFAULT "" COMMENT "回复类型",
+                            status varchar(10) NOT NULL DEFAULT "0" "状态"
+                            createtime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "创建时间",
+                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            PREMARY KEY(id),
+                            KEY "keyword" (keyword)
+                        )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+                        CREATE TABLE %swechat_latest_news (
+                            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            openid varchar(100) NOT NULL DEFAULT "",
+                            createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00",
+                            news_type varchar(20) NOT NULL DEFAULT "" COMMENT "消息类型",
+                            news_keyword varchar(500) NOT NULL DEFAULT "" COMMENT "消息内容关键字",
+                            news_packet varchar(500) NOT NULL DEFAULT "" COMMENT "完整消息包",
+                            PREMARY KEY (id),
+                            KEY "openid" (openid)
+                        )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+                        CREATE TABLE %swechat_reply_content (
+                            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            openid varchar(100) NOT NULL DEFAULT "",
+                            reply_type varchar(20) NOT NULL DEFAULT "" COMMENT "回复类型",
+                            reply_content varchar(500) NOT NULL DEFAULT "" COMMENT "回复内容",
+                            reply_packet varchar(1000) NOT NULL DEFAULT "" COMMENT "完整消息包",
+                            createtime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "创建时间",
+                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            PREMARY KEY (id),
+                            KEY "openid" (openid)
+                        )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+                        CREATE TABLE %swechat_users (
+                            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            openid varchar(100) NOT NULL DEFAULT "",
+                            nickname varchar(100) NOT NULL DEFAULT "",
+                            gender varchar(10) NOT NULL DEFAULT "",
+                            city varchar(30) NOT NULL DEFAULT "",
+                            country varchar(30) NOT NULL DEFAULT "",
+                            province varchar(30) NOT NULL DEFAULT "",
+                            language varchar(30) NOT NULL DEFAULT "",
+                            headimgurl varchar(500) NOT NULL DEFAULT "",
+                            user_packet varchar(1000) NOT NULL DEFAULT "",
+                            createtime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "创建时间",
+                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            status varchar(10) NOT NULL DEFAULT "",
+                            PREMARY KEY (id),
+                            KEY "openid" (openid)
+                        ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+                        CREATE TABLE %swechat_menu (
+                            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            item varchar(1000) NOT NULL DEFAULT "",
+                            createtime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "创建时间",
+                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            PREMARY KEY(id)
+                        )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+                ', $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix);
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+
+        add_option('wechat_db_version', self::VERSION);
+
+        $installed_option = get_option('wechat_db_version');
+        if($installed_option != self::VERSION) {
+            //@TODO upgrade
+            $sql = "";
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
+            update_option('wechat_db_version', self::VERSION);
+        }
+
 	}
 
 	/**
