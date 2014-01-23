@@ -5,7 +5,7 @@
  * Date: 14-1-23
  * Time: 下午5:29
  */
-require_once(plugin_dir_path( __FILE__ ) . 'admin/includes/class-wechat-custom-replys-list-table.php');
+require_once(plugin_dir_path( __FILE__ ) . 'includes/class-wechat-custom-replys-list-table.php');
 
 class Wechat_custom_replys_main {
      /**
