@@ -387,18 +387,18 @@ class Wechat_custom_replys_main {
                     <label for="reply_type"><?php _e('reply type', $this->plugin_slug)?></label>
                 </th>
                 <td>
-<!--                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="--><?php //echo esc_attr($item['reply_type'])?><!--"-->
-<!--                           size="50" class="code" placeholder="--><?php //_e('reply type', $this->plugin_slug)?><!--" required>-->
-                    <?php
-                    foreach($msg_type as $key => $value) {
-                    ?>
-                        <label >
-                            <input name="reply_type" type="radio" value="<?php echo $value?>" <?php checked( $check, $key ); ?> >
-                            <?php echo $value?>
-                         </label>
-                    <?php
-                    }
-                    ?>
+                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="<?php echo esc_attr($item['reply_type'])?>"
+                           size="50" class="code" placeholder="<?php _e('reply type', $this->plugin_slug)?>" required>
+<!--                    --><?php
+//                    foreach($msg_type as $key => $value) {
+//                    ?>
+<!--                        <label >-->
+<!--                            <input name="reply_type" type="radio" value="--><?php //echo $value?><!--" --><?php //checked( $check, $key ); ?><!-- >-->
+<!--                            --><?php //echo $value?>
+<!--                         </label>-->
+<!--                    --><?php
+//                    }
+//                    ?>
                 </td>
             </tr>
             <tr class="form-field">
