@@ -377,7 +377,8 @@ class Wechat_custom_replys_main {
 <!--                    <input id="reply_content" name="reply_content" type="text" style="width: 95%" value="<?php /*echo esc_attr($item['reply_content'])*/?>"
                            size="50" class="code" placeholder="<?php /*_e('reply content', $this->plugin_slug)*/?>" required>-->
                     <textarea name="reply_content" type="text" id="reply_content"
-                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" class="code" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>>
+                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" class="code" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>
+                        <?php echo esc_attr($item['reply_content'])?>
                     </textarea>
                 </td>
             </tr>
@@ -391,8 +392,10 @@ class Wechat_custom_replys_main {
                     <?php
                     foreach($msg_type as $key => $value) {
                     ?>
-                            <input type="radio" id="replys_type" name="replys_type" <?php checked( $check, $key ); ?> />
-                            <label for="my_meta_box_check"><?php echo $value?></label>
+                        <label class="columns-prefs-1">
+                            <input name="reply_type" type="radio" value="<?php echo $value?>" <?php checked( $check, $key ); ?> >
+                            <?php echo $value?>
+                         </label>
                     <?php
                     }
                     ?>
