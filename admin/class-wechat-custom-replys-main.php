@@ -353,7 +353,7 @@ class Wechat_custom_replys_main {
      */
     function wechat_custom_replys_form_meta_box_handler($item)
     {
-        $selected = isset( $item['status'] ) ? esc_attr( $item['status'] ) : "";
+//        $selected = isset( $item['status'] ) ? esc_attr( $item['status'] ) : "";
         ?>
 
         <table cellspacing="2" cellpadding="5" style="width: 100%;" class="form-table">
@@ -390,10 +390,10 @@ class Wechat_custom_replys_main {
                     <label for="status"><?php _e('status', $this->plugin_slug)?></label>
                 </th>
                 <td>
-                    <select name="status" id="status">
-                        <option value="enable" <?php selected( $selected, 'enable' ); ?>><?php _e("enable", $this->plugin_slug);?></option>
-                        <option value="disable" <?php selected( $selected, 'disable' ); ?>><?php _e("disable", $this->plugin_slug);?></option>
-                    </select>
+<!--                    <select name="status" id="status">-->
+<!--                        <option value="enable" --><?php //selected( $selected, 'enable' ); ?><!-->--><?php //_e("enable", $this->plugin_slug);?><!--</option>-->
+<!--                        <option value="disable" --><?php //selected( $selected, 'disable' ); ?><!-->--><?php //_e("disable", $this->plugin_slug);?><!--</option>-->
+<!--                    </select>-->
 
                 </td>
             </tr>
