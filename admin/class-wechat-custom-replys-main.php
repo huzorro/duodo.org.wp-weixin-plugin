@@ -389,18 +389,15 @@ class Wechat_custom_replys_main {
                 <td>
 <!--                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="--><?php //echo esc_attr($item['reply_type'])?><!--"-->
 <!--                           size="50" class="code" placeholder="--><?php //_e('reply type', $this->plugin_slug)?><!--" required>-->
+                    <select name="reply_type" id="reply_type">
                     <?php
                     foreach($type as $key => $value) {
                     ?>
-                        <div>
-                        <label >
-                            <input name="reply_type" type="radio" value="<?php echo $value?>" <?php checked( $check, $key ); ?> >
-                            <?php echo $value?>
-                         </label>
-                        </div>
+                            <option value="enable" <?php selected( $check, $key ); ?>><?php echo $value;?></option>
                     <?php
                     }
                     ?>
+                    </select>
                 </td>
             </tr>
             <tr class="form-field">

@@ -54,6 +54,9 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         return $type[$item['reply_type']];
     }
 
+    function column_status($item) {
+        return __($item['status'], $this->plugin_slug);
+    }
     /**
      * [OPTIONAL] this is example, how to render column with actions,
      * when you hover row "Edit | Delete" links showed
