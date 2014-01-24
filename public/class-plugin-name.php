@@ -244,7 +244,7 @@ class Plugin_Name {
         global $wpdb;
 //        $wechat_db_version = '1.0.0';
 
-        $sql = sprintf('CREATE TABLE wechat_custom_replys (
+        $sql = sprintf('CREATE TABLE %swechat_custom_replys (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             keyword varchar(50) NOT NULL DEFAULT "" COMMENT "关键字",
                             reply_content varchar(500) NOT NULL DEFAULT "" COMMENT "回复内容",
@@ -255,7 +255,7 @@ class Plugin_Name {
                             PRIMARY KEY (`id`),
                             KEY `keyword` (`keyword`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-                        CREATE TABLE wechat_latest_news (
+                        CREATE TABLE %swechat_latest_news (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             openid varchar(100) NOT NULL DEFAULT "",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00",
@@ -265,7 +265,7 @@ class Plugin_Name {
                             PRIMARY KEY (`id`),
                             KEY `openid` (`openid`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-                        CREATE TABLE wechat_reply_content (
+                        CREATE TABLE %swechat_reply_content (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             openid varchar(100) NOT NULL DEFAULT "",
                             reply_type varchar(20) NOT NULL DEFAULT "" COMMENT "回复类型",
@@ -276,7 +276,7 @@ class Plugin_Name {
                             PRIMARY KEY (`id`),
                             KEY `openid` (`openid`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-                        CREATE TABLE wechat_users (
+                        CREATE TABLE %swechat_users (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             openid varchar(100) NOT NULL DEFAULT "",
                             nickname varchar(100) NOT NULL DEFAULT "",
@@ -293,7 +293,7 @@ class Plugin_Name {
                             PRIMARY KEY (`id`),
                             KEY `openid` (`openid`)
                         ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-                        CREATE TABLE wechat_menu (
+                        CREATE TABLE %swechat_menu (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             item varchar(1000) NOT NULL DEFAULT "",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
