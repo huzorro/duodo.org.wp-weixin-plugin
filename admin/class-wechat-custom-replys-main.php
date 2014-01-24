@@ -189,8 +189,8 @@ class Wechat_custom_replys_main {
         );
         add_submenu_page(
             $this->plugin_slug . "-" . 'settings',
-            __('Custom-replys', $this->plugin_slug),
-            __('Custom-replys', $this->plugin_slug),
+            __('Add Custom-replys', $this->plugin_slug),
+            __('Add Custom-replys', $this->plugin_slug),
             'activate_plugins',
             'custom_reply_form',
             array(&$this, 'wechat_custom_replys_form_page_handler')
