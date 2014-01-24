@@ -312,7 +312,6 @@ class Wechat_custom_replys_main {
 
         // here we adding our custom meta box
         add_meta_box('wechat_custom_replys_form_meta_box', __('custom replys data', $this->plugin_slug), 'wechat_custom_replys_form_meta_box_handler', 'reply', 'normal', 'default');
-        add_meta
         ?>
         <div class="wrap">
             <div class="icon32 icon32-posts-post" id="icon-edit"><br></div>
