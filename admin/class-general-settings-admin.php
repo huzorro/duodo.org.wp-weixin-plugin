@@ -222,7 +222,7 @@ class General_settings_admin {
             'event:unsubscribe' => __('event:unsubscribe desc', $this->plugin_slug),
             'event:LOCATION' => __('event:LOCATION desc', $this->plugin_slug),
             'event:CLICK' => __('event:CLICK desc', $this->plugin_slug),
-            'event:SCAN' => _('event:SCAN desc', $this->plugin_slug)
+            'event:SCAN' => __('event:SCAN desc', $this->plugin_slug)
         ), $this->wechat_msgtype_desc_settings);
 
         $this->wechat_reply_func_settings = array_merge(array(
