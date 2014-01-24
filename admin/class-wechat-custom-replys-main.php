@@ -275,7 +275,7 @@ class Wechat_custom_replys_main {
             $item = shortcode_atts($default, $_REQUEST);
             // validate data, and if all ok save item to database
             // if id is zero insert otherwise update
-            $item_valid = wechat_custom_replys_validate($item);
+            $item_valid = self::wechat_custom_replys_validate($item);
             if ($item_valid === true) {
                 if ($item['id'] == 0) {
                     $result = $wpdb->insert($table_name, $item);
