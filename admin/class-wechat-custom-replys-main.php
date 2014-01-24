@@ -377,7 +377,7 @@ class Wechat_custom_replys_main {
 <!--                    <input id="reply_content" name="reply_content" type="text" style="width: 95%" value="<?php /*echo esc_attr($item['reply_content'])*/?>"
                            size="50" class="code" placeholder="<?php /*_e('reply content', $this->plugin_slug)*/?>" required>-->
                     <textarea name="reply_content" type="text" id="reply_content"
-                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>
+                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" ?>" required>
                         <?php echo esc_attr($item['reply_content'])?>
                     </textarea>
                 </td>
