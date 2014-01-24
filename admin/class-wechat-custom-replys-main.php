@@ -312,7 +312,6 @@ class Wechat_custom_replys_main {
 
         // here we adding our custom meta box
         add_meta_box('wechat_custom_replys_form_meta_box', __('custom replys data', $this->plugin_slug), array(&$this, 'wechat_custom_replys_form_meta_box_handler'), 'reply', 'normal', 'default');
-        add_meta_box('wechat_custom_replys_type_form_meta_box', __('custom replys type', $this->plugin_slug), array(&$this, 'wechat_custom_replys_type_form_meta_box_handler'), 'reply_type', 'side', 'high');
         ?>
         <div class="wrap">
             <div class="icon32 icon32-posts-post" id="icon-edit"><br></div>
@@ -337,7 +336,6 @@ class Wechat_custom_replys_main {
                         <div id="post-body-content">
                             <?php /* And here we call our custom meta box */ ?>
                             <?php do_meta_boxes('reply', 'normal', $item); ?>
-                            <?php do_meta_boxes('reply_type', 'side', $item);?>
                             <input type="submit" value="<?php _e('Save', $this->plugin_slug)?>" id="submit" class="button-primary" name="submit">
                         </div>
                     </div>
@@ -356,6 +354,8 @@ class Wechat_custom_replys_main {
     function wechat_custom_replys_form_meta_box_handler($item)
     {
         $selected = isset( $item['status'] ) ? esc_attr( $item['status'] ) : "";
+        $check = isset( $item['replys_type'] ) ? esc_attr( $item['replys_type'] ) : '';
+        $msg_type = get_option("wechat_msgtype_desc_settings");
         ?>
 
         <table cellspacing="2" cellpadding="5" style="width: 100%;" class="form-table">
@@ -377,19 +377,27 @@ class Wechat_custom_replys_main {
 <!--                    <input id="reply_content" name="reply_content" type="text" style="width: 95%" value="<?php /*echo esc_attr($item['reply_content'])*/?>"
                            size="50" class="code" placeholder="<?php /*_e('reply content', $this->plugin_slug)*/?>" required>-->
                     <textarea name="reply_content" type="text" id="reply_content"
-                              cols="50" rows="6" vavalue="<?php echo esc_attr($item['reply_content'])?> class="code" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>>
+                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" class="code" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>>
                     </textarea>
                 </td>
             </tr>
-<!--            <tr class="form-field">
+            <tr class="form-field">
                 <th valign="top" scope="row">
-                    <label for="reply_type"><?php /*_e('reply type', $this->plugin_slug)*/?></label>
+                    <label for="reply_type"><?php _e('reply type', $this->plugin_slug)?></label>
                 </th>
                 <td>
-                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="<?php /*echo esc_attr($item['reply_type'])*/?>"
-                           size="50" class="code" placeholder="<?php /*_e('reply type', $this->plugin_slug)*/?>" required>
+<!--                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="--><?php //echo esc_attr($item['reply_type'])?><!--"-->
+<!--                           size="50" class="code" placeholder="--><?php //_e('reply type', $this->plugin_slug)?><!--" required>-->
+                    <?php
+                    foreach($msg_type as $key => $value) {
+                    ?>
+                            <input type="radio" id="replys_type" name="replys_type" <?php checked( $check, $key ); ?> />
+                            <label for="my_meta_box_check"><?php echo $value?></label>
+                    <?php
+                    }
+                    ?>
                 </td>
-            </tr>-->
+            </tr>
             <tr class="form-field">
                 <th valign="top" scope="row">
                     <label for="status"><?php _e('status', $this->plugin_slug)?></label>
