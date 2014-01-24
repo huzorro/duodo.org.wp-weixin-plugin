@@ -50,7 +50,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
      */
     function column_reply_type($item)
     {
-        return '<b>' . $item['keyword'] . '</b>';
+        return '<b>' . $item['reply_type'] . '</b>';
     }
 
     /**
