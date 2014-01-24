@@ -354,7 +354,7 @@ class Wechat_custom_replys_main {
     function wechat_custom_replys_form_meta_box_handler($item)
     {
         $selected = isset( $item['status'] ) ? esc_attr( $item['status'] ) : "";
-        $check = isset( $item['replys_type'] ) ? esc_attr( $item['replys_type'] ) : '';
+        $check = isset( $item['reply_type'] ) ? esc_attr( $item['reply_type'] ) : '';
         $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
         ?>
 
