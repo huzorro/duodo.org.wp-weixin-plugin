@@ -355,7 +355,7 @@ class Wechat_custom_replys_main {
     {
         $selected = isset( $item['status'] ) ? esc_attr( $item['status'] ) : "";
         $check = isset( $item['replys_type'] ) ? esc_attr( $item['replys_type'] ) : '';
-        $msg_type = get_option("wechat_msgtype_desc_settings");
+        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
         ?>
 
         <table cellspacing="2" cellpadding="5" style="width: 100%;" class="form-table">
@@ -377,7 +377,7 @@ class Wechat_custom_replys_main {
 <!--                    <input id="reply_content" name="reply_content" type="text" style="width: 95%" value="<?php /*echo esc_attr($item['reply_content'])*/?>"
                            size="50" class="code" placeholder="<?php /*_e('reply content', $this->plugin_slug)*/?>" required>-->
                     <textarea name="reply_content" type="text" id="reply_content"
-                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" class="code" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>
+                              cols="50" rows="6" value="<?php echo esc_attr($item['reply_content'])?>" placeholder="<?php _e('reply content', $this->plugin_slug)?>" required>
                         <?php echo esc_attr($item['reply_content'])?>
                     </textarea>
                 </td>
@@ -387,18 +387,20 @@ class Wechat_custom_replys_main {
                     <label for="reply_type"><?php _e('reply type', $this->plugin_slug)?></label>
                 </th>
                 <td>
-                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="<?php echo esc_attr($item['reply_type'])?>"
-                           size="50" class="code" placeholder="<?php _e('reply type', $this->plugin_slug)?>" required>
-<!--                    --><?php
-//                    foreach($msg_type as $key => $value) {
-//                    ?>
-<!--                        <label >-->
-<!--                            <input name="reply_type" type="radio" value="--><?php //echo $value?><!--" --><?php //checked( $check, $key ); ?><!-- >-->
-<!--                            --><?php //echo $value?>
-<!--                         </label>-->
-<!--                    --><?php
-//                    }
-//                    ?>
+<!--                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="--><?php //echo esc_attr($item['reply_type'])?><!--"-->
+<!--                           size="50" class="code" placeholder="--><?php //_e('reply type', $this->plugin_slug)?><!--" required>-->
+                    <?php
+                    foreach($type as $key => $value) {
+                    ?>
+                        <div>
+                        <label >
+                            <input name="reply_type" type="radio" value="<?php echo $value?>" <?php checked( $check, $key ); ?> >
+                            <?php echo $value?>
+                         </label>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </td>
             </tr>
             <tr class="form-field">
