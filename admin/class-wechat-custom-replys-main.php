@@ -393,7 +393,7 @@ class Wechat_custom_replys_main {
                     <?php
                     foreach($type as $key => $value) {
                     ?>
-                            <option value="enable" <?php selected( $check, $key ); ?>><?php echo $value;?></option>
+                            <option value="<?php echo $key?>" <?php selected( $check, $key ); ?>><?php echo $value;?></option>
                     <?php
                     }
                     ?>
