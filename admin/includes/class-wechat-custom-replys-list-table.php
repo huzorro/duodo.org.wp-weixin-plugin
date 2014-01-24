@@ -174,7 +174,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         global $wpdb;
         $table_name = $wpdb->prefix . 'wechat_custom_replys'; // do not forget about tables prefix
 
-        $per_page = 10; // constant, how much records will be shown per page
+        $per_page = 5; // constant, how much records will be shown per page
 
         $columns = $this->get_columns();
         $hidden = array();

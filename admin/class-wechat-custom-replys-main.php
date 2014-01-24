@@ -392,7 +392,7 @@ class Wechat_custom_replys_main {
                     <?php
                     foreach($msg_type as $key => $value) {
                     ?>
-                        <label class="columns-prefs-1">
+                        <label >
                             <input name="reply_type" type="radio" value="<?php echo $value?>" <?php checked( $check, $key ); ?> >
                             <?php echo $value?>
                          </label>
