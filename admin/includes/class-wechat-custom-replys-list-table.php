@@ -174,9 +174,11 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
         $sql = sprintf("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type");
 
+        var_dump($type);
+        
         $type_count = $wpdb->get_results($wpdb->prepare($sql), ARRAY_A);
         var_dump($type_count);
-        var_dump($type);
+
         foreach($type as $key => $value) {
             $_REQUEST["reply_type"]== $key && $class='class="current"';
             foreach($type_count as $k => $v) {
