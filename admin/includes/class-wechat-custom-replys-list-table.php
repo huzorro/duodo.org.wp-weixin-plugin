@@ -168,6 +168,27 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         }
     }
 
+    function get_views(){
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'wechat_custom_replys';
+        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
+        $sql = sprintf("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type");
+
+        $type_count = $wpdb->get_results($wpdb->prepare($sql), ARRAY_A);
+
+        foreach($type as $key => $value) {
+            $_REQUEST["reply_type"]== $key && $class='class="current"';
+            foreach($type_count as $k => $v) {
+                if($v['reply_type'] != $key)  continue;
+                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $attendance_count[$status], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
+            }
+
+            unset($class);
+        }
+
+        return $type_group;
+
+    }
     /**
      * [REQUIRED] This is the most important method
      *
@@ -194,6 +215,9 @@ class Wechat_custom_replys_list_table extends WP_List_Table
 //        $total_items = $wpdb->get_var("SELECT COUNT(id) FROM $table_name ");
 
         $condition = isset($_REQUEST['s']) ? " WHERE keyword LIKE '%%$_REQUEST[s]%%' OR reply_content LIKE '%%$_REQUEST[s]%%' " : '';
+
+        $condition = empty($condition) && isset($_REQUEST['reply_type']) ? " WHERE reply_type = $_REQUEST[reply_type] " : $condition;
+
         $total_items = $wpdb->get_var(sprintf("SELECT COUNT(id) FROM $table_name %s", $condition));
 
         // prepare query params, as usual current page, order by and order direction
