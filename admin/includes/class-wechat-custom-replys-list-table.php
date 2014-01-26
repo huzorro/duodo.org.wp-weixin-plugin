@@ -194,7 +194,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
 //        $total_items = $wpdb->get_var("SELECT COUNT(id) FROM $table_name ");
 
         $where = isset($_REQUEST['s']) ? "WHERE keyword LIKE '%$_REQUEST[s]%' OR reply_content LIKE '%$_REQUEST[s]%'" : '';
-
+        echo $where;
         $total_items = $wpdb->get_var(sprintf("SELECT COUNT(id) FROM $table_name %s", $where));
 
         // prepare query params, as usual current page, order by and order direction
