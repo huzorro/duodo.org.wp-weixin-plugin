@@ -228,7 +228,9 @@ class Wechat_custom_replys_main {
 
             <form id="persons-table" method="GET">
                 <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>"/>
-                <?php $table->display() ?>
+                <?php
+                $table->search_box(__('search', $this->plugin_slug), 'custom_reply_search');
+                $table->display(); ?>
             </form>
 
         </div>
