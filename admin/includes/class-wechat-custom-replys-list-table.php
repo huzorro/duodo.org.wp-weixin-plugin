@@ -205,7 +205,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         // [REQUIRED] define $items array
         // notice that last argument is ARRAY_A, so we will retrieve array
 //        $this->items = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name ORDER BY $orderby $order LIMIT %d OFFSET %d", $per_page, $paged * $per_page), ARRAY_A);
-        $this->items = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name %s ORDER BY $orderby $order LIMIT %d OFFSET %d", $where, $per_page, $paged * $per_page), ARRAY_A);
+        $this->items = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name $where ORDER BY $orderby $order LIMIT %d OFFSET %d", $per_page, $paged * $per_page), ARRAY_A);
 
         // [REQUIRED] configure pagination
         $this->set_pagination_args(array(
