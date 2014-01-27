@@ -332,7 +332,7 @@ class Wechat_custom_replys_main {
                 <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(basename(__FILE__))?>"/>
                 <?php /* NOTICE: here we storing id to determine will be item added or updated */ ?>
                 <input type="hidden" name="id" value="<?php echo $item['id'] ?>"/>
-                <?php if(isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="createtime" value="%s"/>', date('y-m-d H:i:s')); ?>
+                <?php if(!isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="createtime" value="%s"/>', date('y-m-d H:i:s')); ?>
                 <div class="metabox-holder" id="poststuff">
                     <div id="post-body">
                         <div id="post-body-content">
