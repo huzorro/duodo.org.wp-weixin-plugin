@@ -225,7 +225,7 @@ class Wechat_custom_replys_main {
                                                                  href="<?php echo get_admin_url(get_current_blog_id(), 'admin.php?page=custom_reply_form');?>"><?php _e('Add new', $this->plugin_slug)?></a>
             </h2>
             <?php echo $message; ?>
-
+            <?php $table->views();?>
             <form id="persons-table" method="GET">
                 <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>"/>
                 <?php

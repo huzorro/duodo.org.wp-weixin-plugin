@@ -167,50 +167,30 @@ class Wechat_custom_replys_list_table extends WP_List_Table
             }
         }
     }
+
     function get_views(){
-        $views = array();
-        $current = ( !empty($_REQUEST['customvar']) ? $_REQUEST['customvar'] : 'all');
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'wechat_custom_replys';
+        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
+        var_dump($type);
+        $sql = sprintf("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type");
 
-        //All link
-        $class = ($current == 'all' ? ' class="current"' :'');
-        $all_url = remove_query_arg('customvar');
-        $views['all'] = "<a href='{$all_url }' {$class} >All</a>";
+        var_dump($type);
+        $type_count = $wpdb->get_results($wpdb->prepare($sql), ARRAY_A);
+        var_dump($type_count);
 
-       //Foo link
-       $foo_url = add_query_arg('customvar','foo');
-       $class = ($current == 'foo' ? ' class="current"' :'');
-       $views['foo'] = "<a href='{$foo_url}' {$class} >Foo</a>";
+        foreach($type as $key => $value) {
+            $_REQUEST["reply_type"]== $key && $class='class="current"';
+            foreach($type_count as $k => $v) {
+                if($v['reply_type'] != $key)  continue;
+                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
+            }
 
-       //Bar link
-       $bar_url = add_query_arg('customvar','bar');
-       $class = ($current == 'bar' ? ' class="current"' :'');
-       $views['bar'] = "<a href='{$bar_url}' {$class} >Bar</a>";
+            unset($class);
+        }
+        return $type_group;
 
-       return $views;
     }
-//    function get_views(){
-//        global $wpdb;
-//        $table_name = $wpdb->prefix . 'wechat_custom_replys';
-//        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
-//        var_dump($type);
-//        $sql = sprintf("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type");
-//
-//        var_dump($type);
-//        $type_count = $wpdb->get_results($wpdb->prepare($sql), ARRAY_A);
-//        var_dump($type_count);
-//
-//        foreach($type as $key => $value) {
-//            $_REQUEST["reply_type"]== $key && $class='class="current"';
-//            foreach($type_count as $k => $v) {
-//                if($v['reply_type'] != $key)  continue;
-//                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
-//            }
-//
-//            unset($class);
-//        }
-//        return $type_group;
-//
-//    }
     /**
      * [REQUIRED] This is the most important method
      *
