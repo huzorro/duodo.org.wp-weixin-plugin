@@ -30,7 +30,7 @@ class Plugin_Name {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.1';
+	const VERSION = '1.0.2';
 
 	/**
 	 * @TODO - Rename "plugin-name" to the name your your plugin
@@ -250,7 +250,7 @@ class Plugin_Name {
                             reply_type varchar(100) NOT NULL DEFAULT "" COMMENT "回复类型",
                             status varchar(10) NOT NULL DEFAULT "0" "状态",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
-                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            updatetime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "更新时间",
                             PRIMARY KEY (`id`),
                             KEY `keyword` (`keyword`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
@@ -271,7 +271,7 @@ class Plugin_Name {
                             reply_content varchar(500) NOT NULL DEFAULT "" COMMENT "回复内容",
                             reply_packet varchar(1000) NOT NULL DEFAULT "" COMMENT "完整消息包",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
-                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            updatetime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "更新时间",
                             PRIMARY KEY (`id`),
                             KEY `openid` (`openid`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
@@ -287,7 +287,7 @@ class Plugin_Name {
                             headimgurl varchar(500) NOT NULL DEFAULT "",
                             user_packet varchar(1000) NOT NULL DEFAULT "",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
-                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            updatetime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "更新时间",
                             status varchar(10) NOT NULL DEFAULT "",
                             PRIMARY KEY (`id`),
                             KEY `openid` (`openid`)
@@ -296,7 +296,7 @@ class Plugin_Name {
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             item varchar(1000) NOT NULL DEFAULT "",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
-                            updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
+                            updatetime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "更新时间",
                             PRIMARY KEY(`id`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
                 ', $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix);

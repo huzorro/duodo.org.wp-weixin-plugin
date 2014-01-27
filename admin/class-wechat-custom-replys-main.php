@@ -33,7 +33,7 @@ class Wechat_custom_replys_main {
      * @since     1.0.0
      */
     private function __construct() {
-
+        date_default_timezone_set('Asia/Shanghai');
         /*
          * @TODO :
          *
@@ -332,7 +332,8 @@ class Wechat_custom_replys_main {
                 <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(basename(__FILE__))?>"/>
                 <?php /* NOTICE: here we storing id to determine will be item added or updated */ ?>
                 <input type="hidden" name="id" value="<?php echo $item['id'] ?>"/>
-                <?php if(!isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="createtime" value="%s"/>', date('y-m-d H:i:s')); ?>
+                <?php if(!isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="createtime" value="%s"/><input type="hidden" name="updatetime" value="%s"/>', date('Y-m-d H:i:s'), date('Y-m-d H:i:s')); ?>
+                <?php if(isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="updatetime" value="%s"/>',date('Y-m-d H:i:s')); ?>
                 <div class="metabox-holder" id="poststuff">
                     <div id="post-body">
                         <div id="post-body-content">
