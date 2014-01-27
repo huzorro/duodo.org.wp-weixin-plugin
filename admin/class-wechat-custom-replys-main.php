@@ -275,8 +275,7 @@ class Wechat_custom_replys_main {
         // here we are verifying does this request is post back and have correct nonce
         if (wp_verify_nonce($_REQUEST['nonce'], basename(__FILE__))) {
             // combine our default item with request params
-            array_merge($_REQUEST, array('createtime' => date_i18n('Y-m-d H:i:s'), 'updatetime' => date_i18n('Y-m-d H:i:s')));
-            $item = shortcode_atts($default, $_REQUEST);
+            $item = shortcode_atts($default, array_merge($_REQUEST, array('createtime' => date_i18n('Y-m-d H:i:s'), 'updatetime' => date_i18n('Y-m-d H:i:s'))));
             // validate data, and if all ok save item to database
             // if id is zero insert otherwise update
             $item_valid = self::wechat_custom_replys_validate($item);
