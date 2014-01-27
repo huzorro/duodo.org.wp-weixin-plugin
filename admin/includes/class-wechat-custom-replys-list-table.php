@@ -172,22 +172,24 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         global $wpdb;
         $table_name = $wpdb->prefix . 'wechat_custom_replys';
         $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
-        var_dump($type);
         $sql = sprintf("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type");
 
-        var_dump($type);
         $type_count = $wpdb->get_results($wpdb->prepare($sql), ARRAY_A);
-        var_dump($type_count);
+        foreach($type_count as $reply_type => $N) {
+            $_REQUEST['reply_type'] == $reply_type && $class = 'class="currrent';
+            $type_group[] = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $reply_type ) ) . "'>".sprintf( _nx( ''.$type[$reply_type].' <span class=count>(%s)</span>', ''. $N.' <span class=count>(%s)</span>', $N, $this->plugin_slug), number_format_i18n($N )) ."</a>";
 
-        foreach($type as $key => $value) {
-            $_REQUEST["reply_type"]== $key && $class='class="current"';
-            foreach($type_count as $k => $v) {
-                if($v['reply_type'] != $key)  continue;
-                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
-            }
-
-            unset($class);
         }
+
+//        foreach($type as $key => $value) {
+//            $_REQUEST["reply_type"]== $key && $class='class="current"';
+//            foreach($type_count as $k => $v) {
+//                if($v['reply_type'] != $key)  continue;
+//                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
+//            }
+//
+//            unset($class);
+//        }
         return $type_group;
 
     }
