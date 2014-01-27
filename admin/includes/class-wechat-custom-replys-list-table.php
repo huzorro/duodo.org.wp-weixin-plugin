@@ -169,6 +169,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
     }
 
     function get_views(){
+        echo "abc";
 //        global $wpdb;
 //        $table_name = $wpdb->prefix . 'wechat_custom_replys';
 //        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
