@@ -179,17 +179,17 @@ class Wechat_custom_replys_list_table extends WP_List_Table
         $type_count = $wpdb->get_results($wpdb->prepare($sql), ARRAY_A);
         var_dump($type_count);
 
-        foreach($type as $key => $value) {
-            $_REQUEST["reply_type"]== $key && $class='class="current"';
-            foreach($type_count as $k => $v) {
-                if($v['reply_type'] != $key)  continue;
-                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
-            }
+//        foreach($type as $key => $value) {
+//            $_REQUEST["reply_type"]== $key && $class='class="current"';
+//            foreach($type_count as $k => $v) {
+//                if($v['reply_type'] != $key)  continue;
+//                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
+//            }
+//
+//            unset($class);
+//        }
 
-            unset($class);
-        }
-
-        return $type_group;
+        return $type_group[] = "<a href='#'>test</a>";
 
     }
     /**
