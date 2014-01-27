@@ -169,10 +169,10 @@ class Wechat_custom_replys_list_table extends WP_List_Table
     }
 
     function get_views(){
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'wechat_custom_replys';
-        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
-        var_dump($type);
+//        global $wpdb;
+//        $table_name = $wpdb->prefix . 'wechat_custom_replys';
+//        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
+//        var_dump($type);
 //        $sql = sprintf("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type");
 //
 //        var_dump($type);
@@ -189,7 +189,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
 //            unset($class);
 //        }
 
-        return $type_group[] = "<a href='#'>test</a>";
+        return $type_group['av'] = "<a href='#'>test</a>";
 
     }
     /**
