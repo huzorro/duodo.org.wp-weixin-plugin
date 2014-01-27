@@ -33,7 +33,6 @@ class Wechat_custom_replys_main {
      * @since     1.0.0
      */
     private function __construct() {
-        date_default_timezone_set('Asia/Shanghai');
         /*
          * @TODO :
          *
@@ -268,12 +267,15 @@ class Wechat_custom_replys_main {
             'keyword' => '',
             'reply_content' => '',
             'reply_type' => '',
-            'status' => ''
+            'status' => '',
+            'createtime' => '',
+            'updatetime' => ''
         );
 
         // here we are verifying does this request is post back and have correct nonce
         if (wp_verify_nonce($_REQUEST['nonce'], basename(__FILE__))) {
             // combine our default item with request params
+            array_merge($_REQUEST, array('createtime' => date_i18n('Y-m-d H:i:s'), 'updatetime' => date_i18n('Y-m-d H:i:s')));
             $item = shortcode_atts($default, $_REQUEST);
             // validate data, and if all ok save item to database
             // if id is zero insert otherwise update
@@ -332,8 +334,6 @@ class Wechat_custom_replys_main {
                 <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(basename(__FILE__))?>"/>
                 <?php /* NOTICE: here we storing id to determine will be item added or updated */ ?>
                 <input type="hidden" name="id" value="<?php echo $item['id'] ?>"/>
-                <?php if(!isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="createtime" value="%s"/><input type="hidden" name="updatetime" value="%s"/>', date('Y-m-d H:i:s'), date('Y-m-d H:i:s')); ?>
-                <?php if(isset($_REQUEST['id'])) echo sprintf('<input type="hidden" name="updatetime" value="%s"/>',date('Y-m-d H:i:s')); ?>
                 <div class="metabox-holder" id="poststuff">
                     <div id="post-body">
                         <div id="post-body-content">

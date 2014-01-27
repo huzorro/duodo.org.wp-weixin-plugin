@@ -30,7 +30,7 @@ class Plugin_Name {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.2';
+	const VERSION = '1.0.3';
 
 	/**
 	 * @TODO - Rename "plugin-name" to the name your your plugin
