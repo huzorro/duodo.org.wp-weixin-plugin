@@ -268,8 +268,6 @@ class Wechat_custom_replys_main {
             'reply_content' => '',
             'reply_type' => '',
             'status' => '',
-            'createtime' => '',
-            'updatetime' => ''
         );
 
         // here we are verifying does this request is post back and have correct nonce
@@ -282,7 +280,7 @@ class Wechat_custom_replys_main {
             if ($item_valid === true) {
 
                 if ($item['id'] == 0) {
-                    $item['createtime'] = date_i18n('Y-m-d H:i:s');
+                    $item = array_merge($item, array('createtime' => date_i18n('Y-m-d H:i:s'), 'updatetime' => date_i18n('Y-m-d H:i:s')));
                     $result = $wpdb->insert($table_name, $item);
                     $item['id'] = $wpdb->insert_id;
                     if ($result) {
