@@ -183,7 +183,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
             $_REQUEST["reply_type"]== $key && $class='class="current"';
             foreach($type_count as $k => $v) {
                 if($v['reply_type'] != $key)  continue;
-                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $attendance_count[$status], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
+                $type_group[]   = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $key, $this->redirect ) ) . "'>".sprintf( _nx( ''.$value.' <span class=count>(%s)</span>', ''.$value.' <span class=count>(%s)</span>', $v['N'], 'posts' ), number_format_i18n($v['N']) ) ."</a>";
             }
 
             unset($class);
