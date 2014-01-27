@@ -188,7 +188,7 @@ class Wechat_custom_replys_list_table extends WP_List_Table
 //
 //            unset($class);
 //        }
-
+        $type_group = array();
         return $type_group['av'] = "<a href='#'>test</a>";
 
     }
