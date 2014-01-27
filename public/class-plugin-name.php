@@ -242,13 +242,12 @@ class Plugin_Name {
 	private static function single_activate() {
 		// @TODO: Define activation functionality here
         global $wpdb;
-//        $wechat_db_version = '1.0.0';
 
         $sql = sprintf('CREATE TABLE %swechat_custom_replys (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             keyword varchar(50) NOT NULL DEFAULT "" COMMENT "关键字",
                             reply_content varchar(500) NOT NULL DEFAULT "" COMMENT "回复内容",
-                            reply_type varchar(20) NOT NULL DEFAULT "" COMMENT "回复类型",
+                            reply_type varchar(100) NOT NULL DEFAULT "" COMMENT "回复类型",
                             status varchar(10) NOT NULL DEFAULT "0" "状态",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
                             updatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
@@ -259,7 +258,7 @@ class Plugin_Name {
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             openid varchar(100) NOT NULL DEFAULT "",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00",
-                            news_type varchar(20) NOT NULL DEFAULT "" COMMENT "消息类型",
+                            news_type varchar(100) NOT NULL DEFAULT "" COMMENT "消息类型",
                             news_keyword varchar(500) NOT NULL DEFAULT "" COMMENT "消息内容关键字",
                             news_packet varchar(500) NOT NULL DEFAULT "" COMMENT "完整消息包",
                             PRIMARY KEY (`id`),
@@ -268,7 +267,7 @@ class Plugin_Name {
                         CREATE TABLE %swechat_reply_content (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             openid varchar(100) NOT NULL DEFAULT "",
-                            reply_type varchar(20) NOT NULL DEFAULT "" COMMENT "回复类型",
+                            reply_type varchar(100) NOT NULL DEFAULT "" COMMENT "回复类型",
                             reply_content varchar(500) NOT NULL DEFAULT "" COMMENT "回复内容",
                             reply_packet varchar(1000) NOT NULL DEFAULT "" COMMENT "完整消息包",
                             createtime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "创建时间",
