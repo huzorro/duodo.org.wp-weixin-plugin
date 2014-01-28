@@ -188,8 +188,8 @@ class Wechat_latest_news_main {
         );
         add_submenu_page(
             $this->plugin_slug . "-" . 'settings',
-            __('Add Custom-replys', $this->plugin_slug),
-            __('Add Custom-replys', $this->plugin_slug),
+            __('Add Latest-news', $this->plugin_slug),
+            __('Add Latest-news', $this->plugin_slug),
             'activate_plugins',
             'latest_news_form',
             array(&$this, 'wechat_latest_news_form_page_handler')
@@ -221,7 +221,7 @@ class Wechat_latest_news_main {
 
             <div class="icon32 icon32-posts-post" id="icon-edit"><br></div>
             <h2><?php _e('latest news', $this->plugin_slug)?> <a class="add-new-h2"
-                                                                 href="<?php echo get_admin_url(get_current_blog_id(), 'admin.php?page=Latest_news_form');?>"><?php _e('Add new', $this->plugin_slug)?></a>
+                                                                 href="<?php echo get_admin_url(get_current_blog_id(), 'admin.php?page=latest_news_form');?>"><?php _e('Add new', $this->plugin_slug)?></a>
             </h2>
             <?php echo $message; ?>
             <?php $table->views();?>
