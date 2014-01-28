@@ -464,14 +464,14 @@ class Wechat_reply_content_main {
      * @param $item
      * @return bool|string
      */
-    function wechat_latest_news_validate($item)
+    function wechat_reply_content_validate($item)
     {
         $messages = array();
 
         if (empty($item['openid'])) $messages[] = __('openid is required', $this->plugin_slug);
-        if (empty($item['news_keyword'])) $messages[] = __('news keyword is required', $this->plugin_slug);
-        if (empty($item['news_type'])) $messages[] = __('news type is required', $this->plugin_slug);
-        if (empty($item['news_packet'])) $messages[] = __('news packet is required', $this->plugin_slug);
+        if (empty($item['reply_content'])) $messages[] = __('reply content is required', $this->plugin_slug);
+        if (empty($item['reply_type'])) $messages[] = __('reply type is required', $this->plugin_slug);
+        if (empty($item['reply_packet'])) $messages[] = __('reply packet is required', $this->plugin_slug);
 
         if (empty($messages)) return true;
         return implode('<br />', $messages);
