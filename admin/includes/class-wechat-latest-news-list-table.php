@@ -181,8 +181,7 @@ class Wechat_latest_news_list_table extends WP_List_Table
         }
         $class = !isset($_REQUEST['news_type']) ? 'class="current"' : '';
         $allV = "<a $class href='" . esc_url( remove_query_arg( 'news_type') ) . "'>".sprintf( _nx( __('All', $this->plugin_slug) .' <span class=count>(%s)</span>', ''. __('All', $this->plugin_slug).' <span class=count>(%s)</span>', $allN, $this->plugin_slug), number_format_i18n($allN)) ."</a>";
-        array_unshift($type_group, $allV) ;
-        return $type_group;
+        return $type_group && array_unshift($type_group, $allV)  ? $type_group : $allV;
 
     }
     /**
