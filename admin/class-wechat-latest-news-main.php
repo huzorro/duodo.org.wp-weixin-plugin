@@ -267,7 +267,7 @@ class Wechat_latest_news_main {
             'openid' => '',
             'news_type' => '',
             'news_keyword' => '',
-            'news_packet' => '',
+            'news_packet' => ''
         );
 
         // here we are verifying does this request is post back and have correct nonce
@@ -280,7 +280,7 @@ class Wechat_latest_news_main {
             if ($item_valid === true) {
 
                 if ($item['id'] == 0) {
-                    $item = array_merge($item, array('createtime' => date_i18n('Y-m-d H:i:s'), 'updatetime' => date_i18n('Y-m-d H:i:s')));
+                    $item = array_merge($item, array('createtime' => date_i18n('Y-m-d H:i:s')));
                     $result = $wpdb->insert($table_name, $item);
                     $item['id'] = $wpdb->insert_id;
                     if ($result) {
