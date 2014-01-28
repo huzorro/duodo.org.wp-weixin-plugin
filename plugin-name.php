@@ -87,8 +87,9 @@ if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-general-settings-admin.php' );
     require_once( plugin_dir_path(__FILE__) . 'admin/class-wechat-custom-replys-main.php');
-
+    require_once( plugin_dir_path(__FILE__) . 'admin/class-wechat-latest-news-main.php');
 	add_action( 'plugins_loaded', array( 'General_settings_admin', 'get_instance' ) );
     add_action('plugins_loaded', array('Wechat_custom_replys_main', 'get_instance'));
+    add_action('plugins_loaded', array('Wechat_latest_news_main', 'get_instance'));
 
 }
