@@ -68,8 +68,8 @@ class Wechat_latest_news_list_table extends WP_List_Table
         // also notice how we use $this->_args['singular'] so in this example it will
         // be something like &person=2
         $actions = array(
-            'edit' => sprintf('<a href="?page=Latest_news_form&id=%s">%s</a>', $item['id'], __('Edit', $this->plugin_slug)),
-            'delete' => sprintf('<a href="?page=%s&action=delete&id=%s">%s</a>', $_REQUEST['page'], $item['id'], __('Delete', $this->plugin_slug)),
+            'edit' => sprintf('<a href="?page=latest_news_form&id=%s">%s</a>', $item['id'], __('Edit')),
+            'delete' => sprintf('<a href="?page=%s&action=delete&id=%s">%s</a>', $_REQUEST['page'], $item['id'], __('Delete')),
         );
 
         global $wpdb;
@@ -139,7 +139,7 @@ class Wechat_latest_news_list_table extends WP_List_Table
     function get_bulk_actions()
     {
         $actions = array(
-            'delete' => __('Delete', $this->plugin_slug)
+            'delete' => __('Delete')
         );
         return $actions;
     }
