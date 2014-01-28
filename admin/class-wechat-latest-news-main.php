@@ -183,7 +183,7 @@ class Wechat_latest_news_main {
             __('Latest-news', $this->plugin_slug),
             __('Latest-news', $this->plugin_slug),
             'activate_plugins',
-            'Latest-news',
+            'latest-news',
             array(&$this, 'wechat_latest_news_page_handler')
         );
         add_submenu_page(
@@ -191,7 +191,7 @@ class Wechat_latest_news_main {
             __('Add Custom-replys', $this->plugin_slug),
             __('Add Custom-replys', $this->plugin_slug),
             'activate_plugins',
-            'Latest_news_form',
+            'latest_news_form',
             array(&$this, 'wechat_latest_news_form_page_handler')
         );
     }
