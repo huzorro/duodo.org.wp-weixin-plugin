@@ -216,6 +216,8 @@ class Wechat_msg_mutual_list_table extends WP_List_Table
 
         $condition = isset($_REQUEST['mutual_type']) ? " WHERE reply_type = '$_REQUEST[mutual_type]' " : $condition;
 
+        $condition = isset($_REQUEST['history']) ? " WHERE openid = '$_REQUEST[history]' " : $condition;
+
         $total_items = $wpdb->get_var(sprintf("SELECT COUNT(id) FROM $table_name %s", $condition));
 
         // prepare query params, as usual current page, order by and order direction
