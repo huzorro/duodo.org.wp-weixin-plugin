@@ -30,7 +30,7 @@ class Plugin_Name {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.4';
+	const VERSION = '1.0.5';
 
 	/**
 	 * @TODO - Rename "plugin-name" to the name your your plugin
@@ -299,7 +299,7 @@ class Plugin_Name {
                             updatetime timestamp NOT NULL DEFAULT "0000-00-00 00:00:00" COMMENT "更新时间",
                             PRIMARY KEY(`id`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-                        CREATE TABLE wechat_msg_mutual (
+                        CREATE TABLE %swechat_msg_mutual (
                             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                             openid varchar(100) NOT NULL DEFAULT "",
                             msg_type varchar(100) NOT NULL DEFAULT "" COMMENT "消息类型",
@@ -310,7 +310,7 @@ class Plugin_Name {
                             PRIMARY KEY (`id`),
                             KEY `openid` (`openid`)
                         )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-                        ', $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix);
+                        ', $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix, $wpdb->prefix,$wpdb->prefix);
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
