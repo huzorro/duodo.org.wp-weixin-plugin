@@ -72,7 +72,7 @@ class Wechat_msg_mutual_list_table extends WP_List_Table
         // also notice how we use $this->_args['singular'] so in this example it will
         // be something like &person=2
         $actions = array(
-            'edit' => sprintf('<a href="?page=reply_content_form&id=%s">%s</a>', $item['id'], __('Edit')),
+            'edit' => sprintf('<a href="?page=msg_mutual_form&id=%s">%s</a>', $item['id'], __('Edit')),
             'delete' => sprintf('<a href="?page=%s&action=delete&id=%s">%s</a>', $_REQUEST['page'], $item['id'], __('Delete')),
         );
 
