@@ -539,7 +539,7 @@ class Wechat_users_main {
         if (empty($item['language'])) $messages[] = __('language is required', $this->plugin_slug);
         if (empty($item['headimgurl'])) $messages[] = __('headimgurl is required', $this->plugin_slug);
         if (empty($item['user_packet'])) $messages[] = __('user_packet is required', $this->plugin_slug);
-        
+
         if (empty($messages)) return true;
         return implode('<br />', $messages);
     }
