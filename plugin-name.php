@@ -90,12 +90,14 @@ if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
     require_once( plugin_dir_path(__FILE__) . 'admin/class-wechat-latest-news-main.php');
     require_once( plugin_dir_path(__FILE__) . 'admin/class-wechat-reply-content-main.php');
     require_once( plugin_dir_path(__FILE__) . 'admin/class-wechat-users-main.php');
+    require_once( plugin_dir_path(__FILE__) . 'admin/class-wechat-msg-mutual-main.php');
 
 	add_action( 'plugins_loaded', array( 'General_settings_admin', 'get_instance' ) );
     add_action('plugins_loaded', array('Wechat_custom_replys_main', 'get_instance'));
     add_action('plugins_loaded', array('Wechat_latest_news_main', 'get_instance'));
     add_action('plugins_loaded', array('Wechat_reply_content_main', 'get_instance'));
     add_action('plugins_loaded', array('Wechat_users_main', 'get_instance'));
+    add_action('plugins_loaded', array('Wechat_msg_mutual_main', 'get_instance'));
 
 
 }
