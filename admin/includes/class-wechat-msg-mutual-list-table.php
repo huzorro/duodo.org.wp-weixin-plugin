@@ -48,12 +48,16 @@ class Wechat_msg_mutual_list_table extends WP_List_Table
      * @param $item - row (key, value array)
      * @return HTML
      */
-    function column_mutual_type($item)
+    function column_msg_type($item)
     {
         $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
         return $type[$item['mutual_type']];
     }
+    function column_mutual_type($item)
+    {
 
+        return $item['mutual_type'] == "receive" ? __('receive', $this->plugin_slug) : __('send', $this->plugin_slug);
+    }
     /**
      * [OPTIONAL] this is example, how to render column with actions,
      * when you hover row "Edit | Delete" links showed
@@ -74,7 +78,7 @@ class Wechat_msg_mutual_list_table extends WP_List_Table
 
         global $wpdb;
         $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM %s WHERE openid = '%s'", $wpdb->prefix . 'wechat_users'), ARRAY_A);
-
+        var_dump($user);
         return sprintf('%s %s',
             isset($user['nickname']) ? $user['nickname'] : $item['openid'],
             $this->row_actions($actions)
