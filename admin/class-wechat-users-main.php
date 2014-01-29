@@ -388,24 +388,6 @@ class Wechat_users_main {
             </tr>
             <tr class="form-field">
                 <th valign="top" scope="row">
-                    <label for="nickname"><?php _e('nickname', $this->plugin_slug)?></label>
-                </th>
-                <td>
-                    <input id="nickname" name="nickname" type="text" style="width: 95%" value="<?php echo esc_attr($item['nickname'])?>"
-                           size="50" class="code" placeholder="<?php _e('nickname', $this->plugin_slug)?>" required>
-                </td>
-            </tr>
-            <tr class="form-field">
-                <th valign="top" scope="row">
-                    <label for="nickname"><?php _e('nickname', $this->plugin_slug)?></label>
-                </th>
-                <td>
-                    <input id="nickname" name="nickname" type="text" style="width: 95%" value="<?php echo esc_attr($item['nickname'])?>"
-                           size="50" class="code" placeholder="<?php _e('nickname', $this->plugin_slug)?>" required>
-                </td>
-            </tr>
-            <tr class="form-field">
-                <th valign="top" scope="row">
                     <label for="city"><?php _e('city', $this->plugin_slug)?></label>
                 </th>
                 <td>
