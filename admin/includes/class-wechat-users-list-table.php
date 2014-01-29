@@ -50,7 +50,7 @@ class Wechat_users_list_table extends WP_List_Table
      */
     function column_headimgurl($item)
     {
-        return sprintf("<img src='%s' alt='%s'>", $item['headimgurl'], $item['nickname']);
+        return sprintf("<img src='%s' alt='%s'/>", $item['headimgurl'], $item['nickname']);
     }
 
     function column_gender($item)
