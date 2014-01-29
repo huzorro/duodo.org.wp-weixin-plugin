@@ -57,6 +57,9 @@ class Wechat_users_list_table extends WP_List_Table
     {
         return $item['gender'] == '0' ? __('Female', $this->plugin_slug) : __('Male', $this->plugin_slug);
     }
+    function column_status($item) {
+        return $item['status'] == '1' ? __('subscribe', $this->plugin_slug) : __('unsubscribe', $this->plugin_slug);
+    }
     /**
      * [OPTIONAL] this is example, how to render column with actions,
      * when you hover row "Edit | Delete" links showed
