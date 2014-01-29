@@ -78,6 +78,7 @@ class Wechat_msg_mutual_list_table extends WP_List_Table
 
         global $wpdb;
         $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM %s WHERE openid = '%s'", $wpdb->prefix . 'wechat_users', $item['openid']), ARRAY_A);
+        var_dump($user);
         return sprintf('%s %s',
             isset($user['nickname']) ? $user['nickname'] : $item['openid'],
             $this->row_actions($actions)
