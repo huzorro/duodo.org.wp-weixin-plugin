@@ -470,7 +470,7 @@ class Wechat_msg_mutual_main {
 
         if (empty($item['openid'])) $messages[] = __('openid is required', $this->plugin_slug);
         if (empty($item['mutual_keyword'])) $messages[] = __('mutual keyword is required', $this->plugin_slug);
-        if (empty($item['news_packet'])) $messages[] = __('news packet is required', $this->plugin_slug);
+        if (empty($item['mutual_packet'])) $messages[] = __('mutual packet is required', $this->plugin_slug);
 
         if (empty($messages)) return true;
         return implode('<br />', $messages);
