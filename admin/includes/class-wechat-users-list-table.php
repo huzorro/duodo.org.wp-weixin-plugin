@@ -199,7 +199,7 @@ class Wechat_users_list_table extends WP_List_Table
     function prepare_items()
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'wechat_reply_content'; // do not forget about tables prefix
+        $table_name = $wpdb->prefix . 'wechat_users'; // do not forget about tables prefix
 
         $per_page = 5; // constant, how much records will be shown per page
 
