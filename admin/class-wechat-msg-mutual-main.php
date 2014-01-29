@@ -464,7 +464,7 @@ class Wechat_msg_mutual_main {
      * @param $item
      * @return bool|string
      */
-    function wechat_latest_news_validate($item)
+    function wechat_msg_mutual_validate($item)
     {
         $messages = array();
 
