@@ -191,7 +191,7 @@ class Wechat_msg_mutual_list_table extends WP_List_Table
     function prepare_items()
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'wechat_reply_content'; // do not forget about tables prefix
+        $table_name = $wpdb->prefix . 'wechat_msg_mutual'; // do not forget about tables prefix
 
         $per_page = 5; // constant, how much records will be shown per page
 
