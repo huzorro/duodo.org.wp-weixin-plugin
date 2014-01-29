@@ -10,7 +10,7 @@ if (!class_exists('WP_List_Table')) {
     require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
 
-class Wechat_reply_content_list_table extends WP_List_Table
+class Wechat_users_list_table extends WP_List_Table
 {
     /**
      * [REQUIRED] You must declare constructor and give some basic params
@@ -23,8 +23,8 @@ class Wechat_reply_content_list_table extends WP_List_Table
         $this->plugin_slug = $plugin->get_plugin_slug();
 
         parent::__construct(array(
-            'singular' => 'content',
-            'plural' => 'contents',
+            'singular' => 'user',
+            'plural' => 'users',
         ));
     }
 
@@ -48,12 +48,15 @@ class Wechat_reply_content_list_table extends WP_List_Table
      * @param $item - row (key, value array)
      * @return HTML
      */
-    function column_reply_type($item)
+    function column_headimgurl($item)
     {
-        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
-        return $type[$item['reply_type']];
+        return sprintf("<img src='%s' alt='%s'>", $item['headimgurl'], $item['nickname']);
     }
 
+    function column_gender($item)
+    {
+        return $item['gender'] == '0' ? __('Female', $this->plugin_slug) : __('Male', $this->plugin_slug);
+    }
     /**
      * [OPTIONAL] this is example, how to render column with actions,
      * when you hover row "Edit | Delete" links showed
@@ -68,15 +71,11 @@ class Wechat_reply_content_list_table extends WP_List_Table
         // also notice how we use $this->_args['singular'] so in this example it will
         // be something like &person=2
         $actions = array(
-            'edit' => sprintf('<a href="?page=reply_content_form&id=%s">%s</a>', $item['id'], __('Edit')),
+            'edit' => sprintf('<a href="?page=users_form&id=%s">%s</a>', $item['id'], __('Edit')),
             'delete' => sprintf('<a href="?page=%s&action=delete&id=%s">%s</a>', $_REQUEST['page'], $item['id'], __('Delete')),
         );
-
-        global $wpdb;
-        $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM %s WHERE openid = '%s'", $wpdb->prefix . 'wechat_users'), ARRAY_A);
-
         return sprintf('%s %s',
-            isset($user['nickname']) ? $user['nickname'] : $item['openid'],
+            $item['openid'],
             $this->row_actions($actions)
         );
     }
@@ -107,9 +106,15 @@ class Wechat_reply_content_list_table extends WP_List_Table
         $columns = array(
             'cb' => '<input type="checkbox" />', //Render a checkbox instead of text
             'openid' => __('openid', $this->plugin_slug),
-            'reply_type' => __('reply type', $this->plugin_slug),
-            'reply_content' => __('reply content', $this->plugin_slug),
+            'headimgurl' => __('headimg', $this->plugin_slug),
+            'nickname' => __('nickname', $this->plugin_slug),
+            'gender' => __('gender', $this->plugin_slug),
+            'city' => __('city', $this->plugin_slug),
+            'country' => __('country', $this->plugin_slug),
+            'province' => __('province', $this->plugin_slug),
+            'language' => __('language', $this->plugin_slug),
             'updatetime' => __('updatetime', $this->plugin_slug),
+            'status' => __('status', $this->plugin_slug)
         );
         return $columns;
     }
@@ -125,8 +130,11 @@ class Wechat_reply_content_list_table extends WP_List_Table
     {
         $sortable_columns = array(
             'updatetime' => array('updatetime', true),
-            'reply_type' => array('reply_type', false),
-            'reply_content' => array('reply_content', false),
+            'gender' => array('gender', false),
+            'city' => array('city', false),
+            'country' => array('country', false),
+            'province' => array('province', false),
+            'status' => array('status', false)
         );
         return $sortable_columns;
     }
@@ -154,7 +162,7 @@ class Wechat_reply_content_list_table extends WP_List_Table
     function process_bulk_action()
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'wechat_reply_content';
+        $table_name = $wpdb->prefix . 'wechat_users';
 
         if ('delete' === $this->current_action()) {
             $ids = isset($_REQUEST['id']) ? $_REQUEST['id'] : array();
@@ -168,21 +176,19 @@ class Wechat_reply_content_list_table extends WP_List_Table
 
     function get_views(){
         global $wpdb;
-        $table_name = $wpdb->prefix . 'wechat_reply_content';
-        $type = array_merge(get_option('wechat_msgtype_desc_settings'), get_option('wechat_reply_func_settings') );
-
-        $type_count = $wpdb->get_results($wpdb->prepare("SELECT reply_type, COUNT(*) AS N FROM $table_name GROUP BY reply_type", ''), ARRAY_A);
+        $table_name = $wpdb->prefix . 'wechat_users';
+        $province = $wpdb->get_results($wpdb->prepare("SELECT province, COUNT(*) AS N FROM $table_name GROUP BY province", ''), ARRAY_A);
         $allN = 0;
-        foreach($type_count as $k => $typeN) {
-            $allN += $typeN['N'];
-            $class = (isset($_REQUEST['reply_type']) && $_REQUEST['reply_type'] == $typeN['reply_type']) ? 'class="current"' : '';
-            $type_group[] = "<a $class href='" . esc_url( add_query_arg( 'reply_type', $typeN['reply_type']) ) . "'>".sprintf( _nx( ''.$type[$typeN['reply_type']].' <span class=count>(%s)</span>', ''. $type[$typeN['reply_type']].' <span class=count>(%s)</span>', $typeN['N'], $this->plugin_slug), number_format_i18n($typeN['N'] )) ."</a>";
+        foreach($province as $k => $provinceN) {
+            $allN += $provinceN['N'];
+            $class = (isset($_REQUEST['province']) && $_REQUEST['province'] == $provinceN['province']) ? 'class="current"' : '';
+            $province_group[] = "<a $class href='" . esc_url( add_query_arg( 'province', $provinceN['province']) ) . "'>".sprintf( _nx( ''.$provinceN['province'].' <span class=count>(%s)</span>', ''. $provinceN['province'].' <span class=count>(%s)</span>', $provinceN['N'], $this->plugin_slug), number_format_i18n($provinceN['N'] )) ."</a>";
             unset($class);
         }
-        $class = !isset($_REQUEST['reply_type']) ? 'class="current"' : '';
-        $allV = "<a $class href='" . esc_url( remove_query_arg( 'reply_type') ) . "'>".sprintf( _nx( __('All', $this->plugin_slug) .' <span class=count>(%s)</span>', ''. __('All', $this->plugin_slug).' <span class=count>(%s)</span>', $allN, $this->plugin_slug), number_format_i18n($allN)) ."</a>";
-        isset($type_group) && array_unshift($type_group, $allV);
-        return isset($type_group) ? $type_group : array($allV);
+        $class = !isset($_REQUEST['province']) ? 'class="current"' : '';
+        $allV = "<a $class href='" . esc_url( remove_query_arg( 'province') ) . "'>".sprintf( _nx( __('All', $this->plugin_slug) .' <span class=count>(%s)</span>', ''. __('All', $this->plugin_slug).' <span class=count>(%s)</span>', $allN, $this->plugin_slug), number_format_i18n($allN)) ."</a>";
+        isset($province_group) && array_unshift($province_group, $allV);
+        return isset($province_group) ? $province_group: array($allV);
 
     }
     /**
@@ -210,9 +216,9 @@ class Wechat_reply_content_list_table extends WP_List_Table
         // will be used in pagination settings
 //        $total_items = $wpdb->get_var("SELECT COUNT(id) FROM $table_name ");
 
-        $condition = isset($_REQUEST['s']) ? " WHERE reply_content LIKE '%%$_REQUEST[s]%%' OR reply_type LIKE '%%$_REQUEST[s]%%' OR openid LIKE '%%$_REQUEST[s]%%' " : '';
+        $condition = isset($_REQUEST['s']) ? " WHERE nickname LIKE '%%$_REQUEST[s]%%' OR city LIKE '%%$_REQUEST[s]%%' OR province LIKE '%%$_REQUEST[s]%%' " : '';
 
-        $condition = isset($_REQUEST['reply_type']) ? " WHERE reply_type = '$_REQUEST[reply_type]' " : $condition;
+        $condition = isset($_REQUEST['province']) ? " WHERE province = '$_REQUEST[province]' " : $condition;
 
         $total_items = $wpdb->get_var(sprintf("SELECT COUNT(id) FROM $table_name %s", $condition));
 
