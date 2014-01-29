@@ -209,7 +209,7 @@ class Wechat_users_main {
     {
         global $wpdb;
 
-        $table = new Wechat_reply_content_list_table();
+        $table = new Wechat_users_list_table();
         $table->prepare_items();
 
         $message = '';
@@ -321,7 +321,7 @@ class Wechat_users_main {
         }
 
         // here we adding our custom meta box
-        add_meta_box('wechat_users_form_meta_box', __('latest news data', $this->plugin_slug), array(&$this, 'wechat_users_form_meta_box_handler'), 'user', 'normal', 'default');
+        add_meta_box('wechat_users_form_meta_box', __('users data', $this->plugin_slug), array(&$this, 'wechat_users_form_meta_box_handler'), 'user', 'normal', 'default');
         ?>
         <div class="wrap">
             <div class="icon32 icon32-posts-post" id="icon-edit"><br></div>
@@ -468,8 +468,8 @@ class Wechat_users_main {
 <!--                    <input id="reply_type" name="reply_type" type="text" style="width: 95%" value="--><?php //echo esc_attr($item['reply_type'])?><!--"-->
 <!--                           size="50" class="code" placeholder="--><?php //_e('reply type', $this->plugin_slug)?><!--" required>-->
                     <select name="gender" id="gender">
-                        <option value="0" <?php selected( $check, '0'); ?>><?php __('Female', $this->plugin_slug);?></option>
-                        <option value="1" <?php selected( $check, '1'); ?>><?php __('Male', $this->plugin_slug);?></option>
+                        <option value="0" <?php selected( $check, '0'); ?>><?php _e('Female', $this->plugin_slug);?></option>
+                        <option value="1" <?php selected( $check, '1'); ?>><?php _e('Male', $this->plugin_slug);?></option>
                     </select>
                 </td>
             </tr>
