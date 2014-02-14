@@ -1,0 +1,721 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: duodo.org.wp-weixin-plugin\n"
+"POT-Creation-Date: 2014-02-14 17:24+0800\n"
+"PO-Revision-Date: 2014-02-14 17:56+0800\n"
+"Last-Translator: huzorro <huzorro@gmail.com>\n"
+"Language-Team: huzorro <huzorro@gmail.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/class-general-settings-admin.php:202
+#: ../admin/class-general-settings-admin.php:243
+msgid "token"
+msgstr ""
+
+#: ../admin/class-general-settings-admin.php:203
+msgid "thumbnails url"
+msgstr "缩略图"
+
+#: ../admin/class-general-settings-admin.php:204
+msgid "replay max"
+msgstr "最大回复条数"
+
+#: ../admin/class-general-settings-admin.php:208
+#: ../admin/class-general-settings-admin.php:258
+msgid "appid"
+msgstr ""
+
+#: ../admin/class-general-settings-admin.php:209
+msgid "scret"
+msgstr ""
+
+#: ../admin/class-general-settings-admin.php:213
+msgid "text desc"
+msgstr "文本类型描述"
+
+#: ../admin/class-general-settings-admin.php:214
+msgid "image desc"
+msgstr "图像类型描述"
+
+#: ../admin/class-general-settings-admin.php:215
+msgid "location desc"
+msgstr "位置类型描述"
+
+#: ../admin/class-general-settings-admin.php:216
+msgid "link desc"
+msgstr "链接类型描述"
+
+#: ../admin/class-general-settings-admin.php:217
+msgid "music desc"
+msgstr "音乐类型描述"
+
+#: ../admin/class-general-settings-admin.php:218
+msgid "news desc"
+msgstr "图文类型描述"
+
+#: ../admin/class-general-settings-admin.php:219
+msgid "voice desc"
+msgstr "语音类型描述"
+
+#: ../admin/class-general-settings-admin.php:220
+msgid "video desc"
+msgstr "视频类型描述"
+
+#: ../admin/class-general-settings-admin.php:221
+msgid "event:subscribe desc"
+msgstr "事件:关注类型描述"
+
+#: ../admin/class-general-settings-admin.php:222
+msgid "event:unsubscribe desc"
+msgstr "事件:取消关注类型描述"
+
+#: ../admin/class-general-settings-admin.php:223
+msgid "event:LOCATION desc"
+msgstr "事件:位置类型描述"
+
+#: ../admin/class-general-settings-admin.php:224
+msgid "event:CLICK desc"
+msgstr "事件:点击类型描述"
+
+#: ../admin/class-general-settings-admin.php:225
+msgid "event:SCAN desc"
+msgstr "事件:扫描类型描述"
+
+#: ../admin/class-general-settings-admin.php:229
+#: ../admin/class-general-settings-admin.php:230
+msgid "function desc"
+msgstr "功能函数描述"
+
+#: ../admin/class-general-settings-admin.php:239
+msgid "General"
+msgstr "常规"
+
+#: ../admin/class-general-settings-admin.php:242
+msgid "General Settings"
+msgstr "常规设置"
+
+#: ../admin/class-general-settings-admin.php:244
+msgid "thumbnails"
+msgstr "缩略图"
+
+#: ../admin/class-general-settings-admin.php:245
+msgid "reply max"
+msgstr "最大回复条数"
+
+#: ../admin/class-general-settings-admin.php:254
+msgid "Advanced"
+msgstr "高级"
+
+#: ../admin/class-general-settings-admin.php:257
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+#: ../admin/class-general-settings-admin.php:259
+msgid "secret"
+msgstr ""
+
+#: ../admin/class-general-settings-admin.php:267
+msgid "MsgType"
+msgstr "消息类型"
+
+#: ../admin/class-general-settings-admin.php:270
+msgid "Msg type desc Settings"
+msgstr "消息类型描述设置"
+
+#: ../admin/class-general-settings-admin.php:271
+msgid "text type"
+msgstr "文本类型"
+
+#: ../admin/class-general-settings-admin.php:272
+msgid "image type"
+msgstr "图像类型"
+
+#: ../admin/class-general-settings-admin.php:273
+msgid "news type"
+msgstr "图文类型"
+
+#: ../admin/class-general-settings-admin.php:274
+msgid "music type"
+msgstr "音乐类型"
+
+#: ../admin/class-general-settings-admin.php:275
+msgid "voice type"
+msgstr "语音类型"
+
+#: ../admin/class-general-settings-admin.php:276
+msgid "link type"
+msgstr "链接类型"
+
+#: ../admin/class-general-settings-admin.php:277
+msgid "video type"
+msgstr "视频类型"
+
+#: ../admin/class-general-settings-admin.php:278
+msgid "location type"
+msgstr "位置类型"
+
+#: ../admin/class-general-settings-admin.php:279
+msgid "event:subscribe type"
+msgstr "事件:关注类型"
+
+#: ../admin/class-general-settings-admin.php:280
+msgid "event:unsubscribe type"
+msgstr "事件:取消关注类型"
+
+#: ../admin/class-general-settings-admin.php:281
+msgid "event:LOCATION type"
+msgstr "事件:位置类型"
+
+#: ../admin/class-general-settings-admin.php:282
+msgid "event:CLICK type"
+msgstr "事件:点击类型"
+
+#: ../admin/class-general-settings-admin.php:283
+msgid "event:SCAN type"
+msgstr "事件:扫描类型"
+
+#: ../admin/class-general-settings-admin.php:291
+msgid "ReplyFunc"
+msgstr "内置回复"
+
+#: ../admin/class-general-settings-admin.php:294
+msgid "Reply func Settings"
+msgstr "内置回复设置"
+
+#: ../admin/class-general-settings-admin.php:295
+msgid "latest news reply function"
+msgstr "最新内容"
+
+#: ../admin/class-general-settings-admin.php:296
+msgid "latest hot reply function"
+msgstr "最受欢迎内容"
+
+#: ../admin/class-general-settings-admin.php:300
+msgid "Wechat General section description goes here."
+msgstr "微信常规设置选项卡, 在这里可以设置一些微信的基本接口信息"
+
+#: ../admin/class-general-settings-admin.php:305
+msgid "Wechat Advanced section description goes here."
+msgstr "微信高级设置选项卡, 在这儿可以做一些微信高级接口设置"
+
+#: ../admin/class-general-settings-admin.php:309
+msgid "Wechat msg type desc section description goes here."
+msgstr "微信消息类型设置选项卡, 在这儿可以对微信的消息类型进行在描述设置"
+
+#: ../admin/class-general-settings-admin.php:313
+msgid "Wechat replyt function section description goes here."
+msgstr "微信内置回复设置选项卡, 在这里你可以对微信的内置回复内容进行设置"
+
+#: ../admin/class-general-settings-admin.php:535
+#: ../admin/class-wechat-latest-news-main.php:183
+#: ../admin/class-wechat-latest-news-main.php:184
+msgid "Latest-news"
+msgstr "最新消息"
+
+#: ../admin/class-general-settings-admin.php:536
+msgid "Weixin"
+msgstr "微信"
+
+#: ../admin/class-general-settings-admin.php:553
+#: ../admin/class-general-settings-admin.php:554
+msgid "General-Settings"
+msgstr "常规设置"
+
+#: ../admin/class-general-settings-admin.php:602
+#: ../admin/class-wechat-custom-replys-main.php:489
+#: ../admin/class-wechat-latest-news-main.php:497
+#: ../admin/class-wechat-msg-mutual-main.php:497
+#: ../admin/class-wechat-reply-content-main.php:498
+#: ../admin/class-wechat-users-main.php:547
+msgid "Settings"
+msgstr "设置"
+
+#: ../admin/class-wechat-custom-replys-main.php:183
+#: ../admin/class-wechat-custom-replys-main.php:184
+msgid "Custom-replys"
+msgstr "自定义回复"
+
+#: ../admin/class-wechat-custom-replys-main.php:191
+#: ../admin/class-wechat-custom-replys-main.php:192
+msgid "Add Custom-replys"
+msgstr "添加自定义回复"
+
+#: ../admin/class-wechat-custom-replys-main.php:217
+#: ../admin/class-wechat-latest-news-main.php:217
+#: ../admin/class-wechat-msg-mutual-main.php:217
+#: ../admin/class-wechat-reply-content-main.php:217
+#: ../admin/class-wechat-users-main.php:217
+#, php-format
+msgid "Items deleted: %d"
+msgstr "内容成功删除:%d"
+
+#: ../admin/class-wechat-custom-replys-main.php:223
+#: ../admin/class-wechat-custom-replys-main.php:322
+msgid "custom reply"
+msgstr "自定义回复"
+
+#: ../admin/class-wechat-custom-replys-main.php:224
+#: ../admin/class-wechat-latest-news-main.php:224
+#: ../admin/class-wechat-msg-mutual-main.php:224
+#: ../admin/class-wechat-reply-content-main.php:224
+#: ../admin/class-wechat-users-main.php:224
+msgid "Add new"
+msgstr "添加消息"
+
+#: ../admin/class-wechat-custom-replys-main.php:231
+#: ../admin/class-wechat-latest-news-main.php:231
+#: ../admin/class-wechat-msg-mutual-main.php:231
+#: ../admin/class-wechat-reply-content-main.php:231
+#: ../admin/class-wechat-users-main.php:231
+msgid "search"
+msgstr "查找"
+
+#: ../admin/class-wechat-custom-replys-main.php:287
+#: ../admin/class-wechat-latest-news-main.php:287
+#: ../admin/class-wechat-msg-mutual-main.php:288
+#: ../admin/class-wechat-reply-content-main.php:287
+#: ../admin/class-wechat-users-main.php:293
+msgid "Item was successfully saved"
+msgstr "内容保存成功"
+
+#: ../admin/class-wechat-custom-replys-main.php:289
+#: ../admin/class-wechat-latest-news-main.php:289
+#: ../admin/class-wechat-msg-mutual-main.php:290
+#: ../admin/class-wechat-reply-content-main.php:289
+#: ../admin/class-wechat-users-main.php:295
+msgid "There was an error while saving item"
+msgstr "内容在保存的时候发生错误"
+
+#: ../admin/class-wechat-custom-replys-main.php:295
+#: ../admin/class-wechat-latest-news-main.php:294
+#: ../admin/class-wechat-msg-mutual-main.php:295
+#: ../admin/class-wechat-reply-content-main.php:295
+#: ../admin/class-wechat-users-main.php:301
+msgid "Item was successfully updated"
+msgstr "内容更新成功"
+
+#: ../admin/class-wechat-custom-replys-main.php:297
+#: ../admin/class-wechat-latest-news-main.php:296
+#: ../admin/class-wechat-msg-mutual-main.php:297
+#: ../admin/class-wechat-reply-content-main.php:297
+#: ../admin/class-wechat-users-main.php:303
+msgid "There was an error while updating item"
+msgstr "内容更新发生错误"
+
+#: ../admin/class-wechat-custom-replys-main.php:312
+#: ../admin/class-wechat-latest-news-main.php:311
+#: ../admin/class-wechat-msg-mutual-main.php:312
+#: ../admin/class-wechat-reply-content-main.php:312
+#: ../admin/class-wechat-users-main.php:318
+msgid "Item not found"
+msgstr "未发现对应的内容"
+
+#: ../admin/class-wechat-custom-replys-main.php:318
+msgid "custom replys data"
+msgstr "自定义回复数据"
+
+#: ../admin/class-wechat-custom-replys-main.php:323
+#: ../admin/class-wechat-latest-news-main.php:322
+#: ../admin/class-wechat-msg-mutual-main.php:323
+#: ../admin/class-wechat-reply-content-main.php:323
+#: ../admin/class-wechat-users-main.php:329
+msgid "back to list"
+msgstr "返回列表"
+
+#: ../admin/class-wechat-custom-replys-main.php:342
+#: ../admin/class-wechat-latest-news-main.php:341
+#: ../admin/class-wechat-msg-mutual-main.php:342
+#: ../admin/class-wechat-reply-content-main.php:342
+#: ../admin/class-wechat-users-main.php:348
+msgid "Save"
+msgstr "保存"
+
+#: ../admin/class-wechat-custom-replys-main.php:368
+#: ../admin/class-wechat-custom-replys-main.php:372
+msgid "keyword"
+msgstr "关键字"
+
+#: ../admin/class-wechat-custom-replys-main.php:377
+#: ../admin/class-wechat-reply-content-main.php:223
+#: ../admin/class-wechat-reply-content-main.php:322
+#: ../admin/class-wechat-reply-content-main.php:377
+#: ../admin/class-wechat-reply-content-main.php:381
+#: ../admin/includes/class-wechat-reply-content-list-table.php:111
+msgid "reply content"
+msgstr "回复内容"
+
+#: ../admin/class-wechat-custom-replys-main.php:388
+#: ../admin/includes/class-wechat-reply-content-list-table.php:110
+msgid "reply type"
+msgstr "回复类型"
+
+#: ../admin/class-wechat-custom-replys-main.php:406
+#: ../admin/class-wechat-users-main.php:460
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:112
+#: ../admin/includes/class-wechat-users-list-table.php:123
+msgid "status"
+msgstr "状态"
+
+#: ../admin/class-wechat-custom-replys-main.php:410
+msgid "enable"
+msgstr "允许"
+
+#: ../admin/class-wechat-custom-replys-main.php:411
+msgid "disable"
+msgstr "禁止"
+
+#: ../admin/class-wechat-custom-replys-main.php:462
+msgid "keyword is required"
+msgstr "关键字是必须的"
+
+#: ../admin/class-wechat-custom-replys-main.php:463
+#: ../admin/class-wechat-reply-content-main.php:472
+msgid "reply content is required"
+msgstr "回复内容是必须的"
+
+#: ../admin/class-wechat-custom-replys-main.php:464
+#: ../admin/class-wechat-reply-content-main.php:473
+msgid "reply type is required"
+msgstr "回复类型是必须的"
+
+#: ../admin/class-wechat-latest-news-main.php:191
+#: ../admin/class-wechat-latest-news-main.php:192
+msgid "Add Latest-news"
+msgstr "添加最新消息"
+
+#: ../admin/class-wechat-latest-news-main.php:223
+#: ../admin/class-wechat-latest-news-main.php:321
+msgid "latest news"
+msgstr "最新消息"
+
+#: ../admin/class-wechat-latest-news-main.php:317
+#: ../admin/class-wechat-reply-content-main.php:318
+msgid "latest news data"
+msgstr "最新消息数据"
+
+#: ../admin/class-wechat-latest-news-main.php:367
+#: ../admin/class-wechat-latest-news-main.php:371
+#: ../admin/class-wechat-msg-mutual-main.php:368
+#: ../admin/class-wechat-msg-mutual-main.php:372
+#: ../admin/class-wechat-reply-content-main.php:368
+#: ../admin/class-wechat-reply-content-main.php:372
+#: ../admin/class-wechat-users-main.php:373
+#: ../admin/class-wechat-users-main.php:377
+#: ../admin/includes/class-wechat-latest-news-list-table.php:109
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:113
+#: ../admin/includes/class-wechat-reply-content-list-table.php:109
+#: ../admin/includes/class-wechat-users-list-table.php:114
+msgid "openid"
+msgstr ""
+
+#: ../admin/class-wechat-latest-news-main.php:376
+msgid "news_keyword"
+msgstr "关键字"
+
+#: ../admin/class-wechat-latest-news-main.php:380
+msgid "news keyword"
+msgstr "关键字"
+
+#: ../admin/class-wechat-latest-news-main.php:385
+msgid "news_packet"
+msgstr "数据包"
+
+#: ../admin/class-wechat-latest-news-main.php:396
+#: ../admin/class-wechat-msg-mutual-main.php:397
+msgid "news_type"
+msgstr "类型"
+
+#: ../admin/class-wechat-latest-news-main.php:470
+#: ../admin/class-wechat-msg-mutual-main.php:471
+#: ../admin/class-wechat-reply-content-main.php:471
+#: ../admin/class-wechat-users-main.php:516
+msgid "openid is required"
+msgstr "openid是必须的"
+
+#: ../admin/class-wechat-latest-news-main.php:471
+msgid "news keyword is required"
+msgstr "关键字是必须的"
+
+#: ../admin/class-wechat-latest-news-main.php:472
+msgid "news type is required"
+msgstr "类型是必须的"
+
+#: ../admin/class-wechat-latest-news-main.php:473
+msgid "news packet is required"
+msgstr "数据包是必须的"
+
+#: ../admin/class-wechat-msg-mutual-main.php:183
+#: ../admin/class-wechat-msg-mutual-main.php:184
+msgid "Msg-mutual"
+msgstr "交互消息"
+
+#: ../admin/class-wechat-msg-mutual-main.php:191
+#: ../admin/class-wechat-msg-mutual-main.php:192
+msgid "Add Msg-mutual"
+msgstr "添加交互消息"
+
+#: ../admin/class-wechat-msg-mutual-main.php:223
+#: ../admin/class-wechat-msg-mutual-main.php:322
+msgid "msg mutual"
+msgstr "交互消息"
+
+#: ../admin/class-wechat-msg-mutual-main.php:318
+msgid "msg mutual data"
+msgstr "交互消息数据"
+
+#: ../admin/class-wechat-msg-mutual-main.php:377
+#: ../admin/class-wechat-msg-mutual-main.php:381
+msgid "mutual_keyword"
+msgstr "关键字"
+
+#: ../admin/class-wechat-msg-mutual-main.php:386
+msgid "mutual_packet"
+msgstr "数据包"
+
+#: ../admin/class-wechat-msg-mutual-main.php:415
+msgid "mutual_type"
+msgstr "类型"
+
+#: ../admin/class-wechat-msg-mutual-main.php:419
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:59
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:174
+msgid "receive"
+msgstr "接受"
+
+#: ../admin/class-wechat-msg-mutual-main.php:420
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:59
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:174
+msgid "send"
+msgstr "回复"
+
+#: ../admin/class-wechat-msg-mutual-main.php:472
+msgid "mutual keyword is required"
+msgstr "关键字是必须的"
+
+#: ../admin/class-wechat-msg-mutual-main.php:473
+msgid "mutual packet is required"
+msgstr "数据包是必须的"
+
+#: ../admin/class-wechat-reply-content-main.php:183
+#: ../admin/class-wechat-reply-content-main.php:184
+msgid "Reply-content"
+msgstr "回复内容"
+
+#: ../admin/class-wechat-reply-content-main.php:191
+#: ../admin/class-wechat-reply-content-main.php:192
+msgid "Add Reply-content"
+msgstr "添加回复内容"
+
+#: ../admin/class-wechat-reply-content-main.php:386
+msgid "reply_packet"
+msgstr "回复内容数据吧"
+
+#: ../admin/class-wechat-reply-content-main.php:397
+msgid "reply_type"
+msgstr "回复类型"
+
+#: ../admin/class-wechat-reply-content-main.php:474
+msgid "reply packet is required"
+msgstr "回复内容数据包是必须的"
+
+#: ../admin/class-wechat-users-main.php:183
+#: ../admin/class-wechat-users-main.php:184
+msgid "View-users"
+msgstr "查看用户"
+
+#: ../admin/class-wechat-users-main.php:191
+#: ../admin/class-wechat-users-main.php:192
+msgid "Add-user "
+msgstr "添加用户"
+
+#: ../admin/class-wechat-users-main.php:223
+#: ../admin/class-wechat-users-main.php:328
+msgid "users"
+msgstr "用户"
+
+#: ../admin/class-wechat-users-main.php:324
+msgid "users data"
+msgstr "用户数据"
+
+#: ../admin/class-wechat-users-main.php:382
+#: ../admin/class-wechat-users-main.php:386
+#: ../admin/includes/class-wechat-users-list-table.php:116
+msgid "nickname"
+msgstr "昵称"
+
+#: ../admin/class-wechat-users-main.php:391
+#: ../admin/class-wechat-users-main.php:395
+#: ../admin/includes/class-wechat-users-list-table.php:118
+msgid "city"
+msgstr "城市"
+
+#: ../admin/class-wechat-users-main.php:400
+#: ../admin/class-wechat-users-main.php:404
+#: ../admin/includes/class-wechat-users-list-table.php:119
+msgid "country"
+msgstr "国家"
+
+#: ../admin/class-wechat-users-main.php:409
+#: ../admin/class-wechat-users-main.php:413
+#: ../admin/includes/class-wechat-users-list-table.php:120
+msgid "province"
+msgstr "省份"
+
+#: ../admin/class-wechat-users-main.php:418
+#: ../admin/class-wechat-users-main.php:422
+#: ../admin/includes/class-wechat-users-list-table.php:121
+msgid "language"
+msgstr "语言"
+
+#: ../admin/class-wechat-users-main.php:427
+#: ../admin/class-wechat-users-main.php:431
+msgid "headimgurl"
+msgstr "头像"
+
+#: ../admin/class-wechat-users-main.php:436
+msgid "user_packet"
+msgstr "用户信息数据包"
+
+#: ../admin/class-wechat-users-main.php:447
+#: ../admin/includes/class-wechat-users-list-table.php:117
+msgid "gender"
+msgstr "性别"
+
+#: ../admin/class-wechat-users-main.php:453
+#: ../admin/includes/class-wechat-users-list-table.php:61
+msgid "Female"
+msgstr "女"
+
+#: ../admin/class-wechat-users-main.php:454
+#: ../admin/includes/class-wechat-users-list-table.php:61
+msgid "Male"
+msgstr "男"
+
+#: ../admin/class-wechat-users-main.php:464
+#: ../admin/includes/class-wechat-users-list-table.php:64
+msgid "subscribe"
+msgstr "关注"
+
+#: ../admin/class-wechat-users-main.php:465
+#: ../admin/includes/class-wechat-users-list-table.php:64
+msgid "unsubscribe"
+msgstr "取消关注"
+
+#: ../admin/class-wechat-users-main.php:517
+msgid "nickname is required"
+msgstr "昵称是必须的"
+
+#: ../admin/class-wechat-users-main.php:518
+msgid "city is required"
+msgstr "城市是必须的"
+
+#: ../admin/class-wechat-users-main.php:519
+msgid "country is required"
+msgstr "国家是必须的"
+
+#: ../admin/class-wechat-users-main.php:520
+msgid "province is required"
+msgstr "省份是必须的"
+
+#: ../admin/class-wechat-users-main.php:521
+msgid "language is required"
+msgstr "语言是必须的"
+
+#: ../admin/class-wechat-users-main.php:522
+msgid "headimgurl is required"
+msgstr "头像是必须的"
+
+#: ../admin/class-wechat-users-main.php:523
+msgid "user_packet is required"
+msgstr "用户信息数据包是必须的"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:74
+#: ../admin/includes/class-wechat-latest-news-list-table.php:71
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:75
+#: ../admin/includes/class-wechat-reply-content-list-table.php:71
+#: ../admin/includes/class-wechat-users-list-table.php:80
+msgid "Edit"
+msgstr "编辑"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:75
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:144
+#: ../admin/includes/class-wechat-latest-news-list-table.php:72
+#: ../admin/includes/class-wechat-latest-news-list-table.php:142
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:76
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:144
+#: ../admin/includes/class-wechat-reply-content-list-table.php:72
+#: ../admin/includes/class-wechat-reply-content-list-table.php:142
+#: ../admin/includes/class-wechat-users-list-table.php:81
+#: ../admin/includes/class-wechat-users-list-table.php:156
+msgid "Delete"
+msgstr "删除"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:109
+msgid "Keyword"
+msgstr "关键字"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:110
+msgid "Reply content"
+msgstr "回复内容"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:111
+msgid "Reply type"
+msgstr "回复类型"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:113
+msgid "update time"
+msgstr "更新时间"
+
+#: ../admin/includes/class-wechat-custom-replys-list-table.php:185
+#: ../admin/includes/class-wechat-latest-news-list-table.php:183
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:185
+#: ../admin/includes/class-wechat-reply-content-list-table.php:183
+#: ../admin/includes/class-wechat-users-list-table.php:195
+msgid "All"
+msgstr "全部"
+
+#: ../admin/includes/class-wechat-latest-news-list-table.php:110
+msgid "News keyword"
+msgstr "关键字"
+
+#: ../admin/includes/class-wechat-latest-news-list-table.php:111
+msgid "News type"
+msgstr "类型"
+
+#: ../admin/includes/class-wechat-latest-news-list-table.php:112
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:117
+msgid "createtime"
+msgstr "创建时间"
+
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:114
+msgid "mutual type"
+msgstr "类型"
+
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:115
+msgid "mutual keyword"
+msgstr "关键字"
+
+#: ../admin/includes/class-wechat-msg-mutual-list-table.php:116
+msgid "msg type"
+msgstr "类型"
+
+#: ../admin/includes/class-wechat-reply-content-list-table.php:112
+#: ../admin/includes/class-wechat-users-list-table.php:122
+msgid "updatetime"
+msgstr "更新时间"
+
+#: ../admin/includes/class-wechat-users-list-table.php:54
+msgid "History"
+msgstr "历史消息"
+
+#: ../admin/includes/class-wechat-users-list-table.php:115
+msgid "headimg"
+msgstr "头像"
